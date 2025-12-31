@@ -15,6 +15,7 @@ function Info() {
             Explore India
           </h1>
 
+
           <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
         </div>
 
