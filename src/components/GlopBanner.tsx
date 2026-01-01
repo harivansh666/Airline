@@ -10,7 +10,9 @@ function GlopBanner() {
   return (
     <>
       {isLoding ? (
-        <Skeleton className="max-w-[400px] h-60 bg-gray-200 rounded-2xl mt-4" />
+        <div className="">
+          <Skeleton className="w-full h-60 bg-gray-200 rounded-2xl mt-4" />
+        </div>
       ) : (
         <div className="flex flex-col sm:flex-row p-2 gap-2 ">
           <Carousel

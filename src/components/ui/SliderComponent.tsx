@@ -27,7 +27,7 @@ const SliderComponent = () => {
   const images = useMemo(
     () => [
       "https://res.cloudinary.com/desslvu1w/image/upload/v1767117341/airindia_far_east_vovngw.jpg",
-      "https://www.ticketstoindia.co.uk/holidaybanners/img/2024_1/british-airways-lg.jpg?v=0.03",
+      "https://res.cloudinary.com/desslvu1w/image/upload/v1767245046/british-airways-lg_bjvopq.jpg",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2024_1/indigo_banner_2.jpg?v=0.03",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2025/airindia_far_east.jpg?v=0.03",
     ],

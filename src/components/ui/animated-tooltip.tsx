@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, type JSX } from "react";
+import { useState, useRef, type JSX, lazy } from "react";
 import {
   motion,
   useTransform,
@@ -15,7 +15,7 @@ export const AnimatedTooltip = ({
   items: {
     id: number;
     name: string;
-    designation: string | JSX.Element;
+    rating: string | JSX.Element;
     image: string;
   }[];
 }) => {
@@ -46,7 +46,7 @@ export const AnimatedTooltip = ({
 
   return (
     <>
-      {items.map((item, idx) => (
+      {items.map((item) => (
         <div
           className="group relative -mr-4"
           key={item.name}
@@ -80,7 +80,7 @@ export const AnimatedTooltip = ({
                 <div className="relative z-30 text-base font-bold text-white">
                   {item.name}
                 </div>
-                <div className="text-xs text-white">{item.designation}</div>
+                <div className="text-xs text-white">{item.rating}</div>
               </motion.div>
             )}
           </AnimatePresence>

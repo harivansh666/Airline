@@ -15,9 +15,10 @@ const Navbar = () => {
           {/* Logo */}
           <div>
             <img
-              src="https://www.ticketstoindia.co.uk/newpics/ticketstoindia-logo.png"
+              src="https://res.cloudinary.com/desslvu1w/image/upload/v1767010770/ticketstoindia-logo-christmas_kfprad.png"
               alt="Logo"
               className="w-68"
+              fetchPriority="high"
             />
           </div>
 
@@ -29,7 +30,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-
             <Link
               to="/visa"
               className="text-gray-700 hover:text-blue-600 text-md font-medium"
@@ -82,19 +82,19 @@ const Navbar = () => {
 
       {/* Mobile Slide-in Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-50 bg-white shadow-md transform ${
+        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-md transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out sm:hidden z-60`}
       >
         <img
-          src="https://www.ticketstoindia.co.uk/newpics/ticketstoindia-logo.png"
+          src="https://res.cloudinary.com/desslvu1w/image/upload/v1767117341/airindia_far_east_vovngw.jpg"
           alt="visa people image"
-          className="w-full h-40  object-cover   rounded-b-2xl  "
+          className="w-full object-contain rounded-b-2xl"
         />
         <div className="p-4 space-y-4">
           <button
             onClick={toggleMenu}
-            className="text-gray-500 w-8 h-8 bg-gray-200 rounded-full float-right text-xl"
+            className="text-gray-500 w-6 h-6 bg-gray-200 rounded-full float-right text-sm"
             aria-label="Close menu"
           >
             ✕
