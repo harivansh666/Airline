@@ -1,12 +1,12 @@
 import { create } from 'zustand'
 
 type Store = {
-    isLoding: boolean
-    setLoding: (isloding: boolean) => void
+    isLoading: boolean
+    setLoading: (isloding: boolean) => void
 }
 
 export const useStore = create<Store>()((set) => ({
-    isLoding: false,
-    setLoding: (isloding: boolean) => set({ isLoding: !isloding }),
+    isLoading: false,
+    setLoading: (loading) => set({ isLoading: loading }),
 }))
 

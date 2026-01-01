@@ -1,4 +1,3 @@
-import { StarIcon } from "lucide-react";
 import FlightSearchForm from "../components/FlightSearchForm";
 import AirlinesDemo from "../components/AirlinesDemo";
 import Info from "../components/Info";
@@ -9,6 +8,7 @@ import RatingPersons from "@/components/RatingPersons";
 function Home() {
   return (
     <div>
+      {/* <Loading /> */}
       <FlightSearchForm />
       <SliderComponent />
       <AirlinesDemo />
