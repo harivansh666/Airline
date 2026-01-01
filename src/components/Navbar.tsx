@@ -3,6 +3,7 @@ import { Link } from "react-router";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -26,10 +27,12 @@ const Navbar = () => {
           <div className="hidden sm:flex space-x-9 items-center">
             <Link
               to="/"
+              onMouseEnter={() => setShowPopup(true)}
+              onMouseLeave={() => setShowPopup(false)}
               className="text-gray-700 hover:text-blue-600 text-md font-medium"
             >
               Home
-            </Link>
+            </Link>{" "}
             <Link
               to="/hotdeals"
               className="text-gray-700 hover:text-blue-600 text-md font-medium"
@@ -55,7 +58,6 @@ const Navbar = () => {
               Book Consultation
             </Link>
           </div>
-
           {/* Mobile Hamburger Icon */}
           <div className="sm:hidden flex items-center">
             <button
@@ -156,8 +158,16 @@ const Navbar = () => {
           aria-label="Close menu backdrop"
         ></div>
       )}
-
-      <div className="w-30 border-amber-300 absolute"></div>
+      {showPopup && (
+        <div className="absolute top-2xl w-30 h-30 bg-gray-200 p-4 rounded-xl">
+          <ul className="font-sans">
+            <li>Amritsar</li>
+            <li>Amritsar</li>
+            <li>Amritsar</li>
+            <li>Amritsar</li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
