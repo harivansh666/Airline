@@ -8,7 +8,6 @@ import RatingPersons from "@/components/RatingPersons";
 function Home() {
   return (
     <div>
-      {/* <Loading /> */}
       <FlightSearchForm />
       <SliderComponent />
       <AirlinesDemo />

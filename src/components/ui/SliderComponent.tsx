@@ -140,7 +140,7 @@ const SliderComponent = () => {
   //   );
 
   return (
-    <div className="w-full max-w-8xl mx-auto px-2 sm:px-4 lg:px-6 mt-4 ">
+    <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mt-4 ">
       {/* Slider Container */}
       <div className="relative h-48 sm:h-64 md:h-80 lg:h-96  sm:rounded-xl overflow-hidden shadow-lg rounded-2xl">
         <AnimatePresence mode="wait" custom={direction}>

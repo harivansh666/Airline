@@ -6,10 +6,10 @@ import Quotes from "./ui/Quotes";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 
 function GlopBanner() {
-  const { isLoding } = useStore();
+  const isLoading = useStore((state) => state.isLoading);
   return (
     <>
-      {isLoding ? (
+      {isLoading ? (
         <div className="">
           <Skeleton className="w-full h-60 bg-gray-200 rounded-2xl mt-4" />
         </div>

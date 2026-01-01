@@ -1,17 +1,8 @@
-import React, { useEffect } from "react";
+import type React from "react";
 
-const Loading: React.FC = () => {
-  useEffect(() => {
-    // Disable scroll when the loader is visible
-    document.body.style.overflow = "hidden";
-
-    // Cleanup: Enable scroll after loader is hidden
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
+const LodingTwo: React.FC = () => {
   return (
-    <div className="fixed flex flex-col  h-screen w-full  justify-center items-center top-0 left-0 right-0 bottom-0 z-50  bg-transparent">
+    <div className=" flex flex-col  h-60 w-90  justify-center items-center top-0 left-0 right-0 bottom-0 z-50  bg-rose-300 rounded-2xl">
       <div className="w-42 h-20  font-custome-regular rounded-full flex flex-col justify-center items-center ">
         <img
           src="https://res.cloudinary.com/desslvu1w/image/upload/v1767256967/lodingPlane.png"
@@ -29,4 +20,4 @@ const Loading: React.FC = () => {
   );
 };
 
-export default Loading;
+export default LodingTwo;

@@ -31,10 +31,10 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/visa"
+              to="/hotdeals"
               className="text-gray-700 hover:text-blue-600 text-md font-medium"
             >
-              Visa
+              Hot Deals
             </Link>
             <Link
               to="/countries"

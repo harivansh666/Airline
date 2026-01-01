@@ -1,24 +1,31 @@
-import { Suspense } from "react";
-import { useStore } from "./store/statesStore";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Loading from "./components/ui/Loading";
 
-const LoadingFallback = () => {
-  useStore((state) => state.setLoding(true));
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-    </div>
-  );
-};
+const Home = lazy(() => import("./pages/Home"));
+const HotDeals = lazy(() => import("./pages/HotDeals"));
+
 function Router() {
   return (
     <div>
-      <Suspense fallback={<LoadingFallback />}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/hotdeals" element={<HotDeals />} />
         </Routes>
       </Suspense>
+
+      <a
+        href="https://wa.me/+1234567890?text=Hello%20there!"
+        className="fixed bottom-4 right-4  z-50"
+      >
+        <div className="relative w-13">
+          <img
+            src="https://res.cloudinary.com/desslvu1w/image/upload/v1767276102/Pngtree_whatsapp_icon_vector_8704827_h9fj7d.png"
+            alt="whatsapp icon"
+          />
+        </div>
+      </a>
     </div>
   );
 }
