@@ -37,7 +37,7 @@ const airlines = [
 
 const AirlinesDemo = () => {
   return (
-    <div className="m-2 mt-4">
+    <div className="m-2 mt-18">
       <h2 className="text-2xl font-medium text-gray-800 mb-2">
         Popular Domestic Airlines
       </h2>

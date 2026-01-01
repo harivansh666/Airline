@@ -14,7 +14,7 @@ function GlopBanner() {
           <Skeleton className="w-full h-60 bg-gray-200 rounded-2xl mt-4" />
         </div>
       ) : (
-        <div className="flex flex-col sm:flex-row p-2 gap-2 ">
+        <div className="flex flex-col sm:flex-row p-2 gap-2  ">
           <Carousel
             opts={{
               align: "start",

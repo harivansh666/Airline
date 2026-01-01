@@ -156,6 +156,8 @@ const Navbar = () => {
           aria-label="Close menu backdrop"
         ></div>
       )}
+
+      <div className="w-30 border-amber-300 absolute"></div>
     </nav>
   );
 };

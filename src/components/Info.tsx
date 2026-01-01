@@ -8,7 +8,7 @@ import {
 function Info() {
   return (
     <>
-      <div className=" p-3">
+      <div className=" p-3 mt-4 ">
         <div className="max-w-8xl mx-auto">
           {/* Header Section */}
           <div className="mb-4 sm:mb-4">
@@ -20,12 +20,12 @@ function Info() {
           </div>
 
           {/* Accordion Section */}
-          <div className="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white">
+          <div className="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white shadow-2xs">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1" className="border-0">
                 <AccordionTrigger className="font-semibold text-lg sm:text-xl text-gray-800 hover:text-gray-900 hover:no-underline px-6 py-4 hover:bg-gray-50 transition-colors duration-200">
                   <div className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 flex items-center justify-center mr-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center mr-3">
                       <span className="text-amber-600 font-bold">✈️</span>
                     </div>
                     <span>Flight Tickets to India</span>
