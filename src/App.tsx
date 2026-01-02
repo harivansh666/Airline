@@ -8,10 +8,8 @@ function App() {
       <div>
         <BrowserRouter>
           <Navbar />
-         
-
           <div className="pt-18 max-w-7xl mx-auto">
-            <Router />{" "}
+            <Router />
           </div>
         </BrowserRouter>
       </div>

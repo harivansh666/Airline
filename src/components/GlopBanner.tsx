@@ -4,8 +4,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { Skeleton } from "./ui/skeleton";
 import Quotes from "./ui/Quotes";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import React from "react";
 
-function GlopBanner() {
+const GlopBanner = React.memo(() => {
   const isLoading = useStore((state) => state.isLoading);
   return (
     <>
@@ -49,6 +50,6 @@ function GlopBanner() {
       )}
     </>
   );
-}
+});
 
 export default GlopBanner;

@@ -1,11 +1,12 @@
 import LodingTwo from "@/components/LodingTwo";
+import React from "react";
 
-function HotDeals() {
+const HotDeals = React.memo(() => {
   return (
     <div>
       <LodingTwo />
     </div>
   );
-}
+});
 
 export default HotDeals;

@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Card, CardContent } from "./ui/card";
 import {
   Carousel,
@@ -75,7 +76,7 @@ const hotels = [
 
 function HotelsBanner() {
   return (
-    <div className="border-2 shadow-xl rounded-3xl p-6 mt-10">
+    <div className="border-2 shadow-xl rounded-3xl p-6 mt-10 m-2">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">
@@ -102,7 +103,7 @@ function HotelsBanner() {
             >
               <Card className="overflow-hidden w-76 rounded-2xl shadow-md border-0 mb-2 ">
                 <div className="relative">
-                  <img
+                  <LazyLoadImage
                     src={hotel.imageUrl}
                     alt={hotel.name}
                     className="w-full h-48 object-cover rounded-b-xl"

@@ -6,7 +6,7 @@ function Quotes() {
       <div className="flex  flex-col-reverse rounded-2xl h-60 items-center justify-center overflow-hidden p-2 border-2">
         <div className="w-full flex">
           <motion.img
-            src="https://res.cloudinary.com/desslvu1w/image/upload/v1767256967/lodingPlane.png"
+            src="https://res.cloudinary.com/desslvu1w/image/upload/q_auto,f_auto/v1767256967/lodingPlane.png"
             initial={{ x: -100 }}
             animate={{ x: 800 }}
             transition={{ duration: 5, repeat: 3, ease: "easeIn" }}

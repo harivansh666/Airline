@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -5,7 +6,7 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-function Info() {
+const Info = React.memo(() => {
   return (
     <>
       <div className=" p-3 mt-4 ">
@@ -203,6 +204,6 @@ function Info() {
       </div>
     </>
   );
-}
+});
 
 export default Info;

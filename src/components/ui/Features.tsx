@@ -1,6 +1,7 @@
 import { CheckCircle, Phone, PlaneTakeoff } from "lucide-react";
+import React from "react";
 
-function Features() {
+const Features = React.memo(() => {
   return (
     <div className=" bg-gradient-to-r from-blue-700  to-indigo-400 rounded-2xl">
       {/* Header Section */}
@@ -59,6 +60,6 @@ function Features() {
       </div>
     </div>
   );
-}
+});
 
 export default Features;

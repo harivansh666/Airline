@@ -18,7 +18,7 @@ const SlideImage = React.memo(({ imageUrl, index }: SlideImageProps) => (
 
 SlideImage.displayName = "SlideImage";
 
-const SliderComponent = () => {
+const SliderComponent = React.memo(() => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [_isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
   const [direction, setDirection] = useState<number>(0);
@@ -40,13 +40,13 @@ const SliderComponent = () => {
     [images]
   );
 
-  // Preload all images for better performance
-  useEffect(() => {
-    slides.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.imageUrl;
-    });
-  }, [slides]);
+  // // Preload all images for better performance
+  // useEffect(() => {
+  //   slides.forEach((slide) => {
+  //     const img = new Image();
+  //     img.src = slide.imageUrl;
+  //   });
+  // }, [slides]);
 
   // Handle window resize with debouncing for better performance
 
@@ -206,6 +206,6 @@ const SliderComponent = () => {
       </div>
     </div>
   );
-};
+});
 
 export default SliderComponent;

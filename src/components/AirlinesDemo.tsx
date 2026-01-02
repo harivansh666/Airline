@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import React from "react";
 
 const airlines = [
   {
@@ -35,7 +36,7 @@ const airlines = [
   },
 ];
 
-const AirlinesDemo = () => {
+const AirlinesDemo = React.memo(() => {
   return (
     <div className="m-2 mt-18">
       <h2 className="text-2xl font-medium text-gray-800 mb-2">
@@ -45,7 +46,7 @@ const AirlinesDemo = () => {
 
       <div className="flex sm:justify-center  overflow-auto  md:overflow-visible md:flex-wrap  sm:gap-28 gap-8 border border-gray-300 rounded-2xl p-5 mt-4">
         {airlines.map((airline, index) => (
-          <Link to={airline.link}>
+          <Link to={airline.link} key={index}>
             <div
               key={index}
               className="flex flex-col items-center justify-center p-1.5"
@@ -53,9 +54,9 @@ const AirlinesDemo = () => {
               <LazyLoadImage
                 src={airline.img}
                 alt={airline.name}
+                loading="lazy"
                 className=" w-15 object-cover"
               />
-
               <p className="text-center text-nowrap  text-blue-600 sm:text-[14px] text-[12px] font-medium mt-2">
                 {airline.name}
               </p>
@@ -65,6 +66,5 @@ const AirlinesDemo = () => {
       </div>
     </div>
   );
-};
-
+});
 export default AirlinesDemo;

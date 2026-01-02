@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 
+import planePng from "../../assets/images/planeLoder.png";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Loading: React.FC = () => {
   useEffect(() => {
     // Disable scroll when the loader is visible
@@ -13,8 +15,8 @@ const Loading: React.FC = () => {
   return (
     <div className="fixed flex flex-col  h-screen w-full  justify-center items-center top-0 left-0 right-0 bottom-0 z-50  bg-transparent">
       <div className="w-42 h-20  font-custome-regular rounded-full flex flex-col justify-center items-center ">
-        <img
-          src="https://res.cloudinary.com/desslvu1w/image/upload/v1767256967/lodingPlane.png"
+        <LazyLoadImage
+          src={planePng}
           alt="Loading animation of an airplane"
           className="w-18 animate-bounce"
         />
