@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { Link } from "react-router";
-import RatingPersons from "./RatingPersons";
+
+const RatingPersons = lazy(() => import("./RatingPersons"));
 
 const Navbar = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -25,24 +25,24 @@ const Navbar = React.memo(() => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidde relative n sm:flex space-x-9 items-center">
+          <div className="hidden  relative n sm:flex space-x-9 items-center">
             <Link
               to="/"
               onMouseEnter={() => setShowPopup(true)}
               onMouseLeave={() => setShowPopup(false)}
-              className="text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
             >
               Home
             </Link>{" "}
             <Link
               to="/hotdeals"
-              className="text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
             >
               Hot Deals
             </Link>
             <Link
               to="/countries"
-              className="text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
             >
               Countries
             </Link>
@@ -54,7 +54,7 @@ const Navbar = React.memo(() => {
             </Link> */}
             <Link
               to="/contact"
-              className=" bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium"
             >
               Book Consultation
             </Link>
@@ -164,7 +164,9 @@ const Navbar = React.memo(() => {
             >
               Book Free Consultation
             </Link>
-            <RatingPersons />
+            <Suspense fallback={<div>Loading...</div>}>
+              <RatingPersons />
+            </Suspense>
           </div>
         </div>
       </div>

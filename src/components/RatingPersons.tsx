@@ -101,8 +101,9 @@ const RatingPersons = React.memo(() => {
       <h1 className="text-2xl font-bold text-gray-800 mb-2 ml-2">
         Our Permanent customers
       </h1>
-      <div className="flex flex-row items-center justify-start p-2  w-full">
+      <div className="flex flex-row items-center justify-start p-2 gap-1 w-full">
         <AnimatedTooltip items={people} />
+        <p className="ml-4 text-gray-500 animate-pulse">click me</p>
       </div>
       <p className="text-gray-500 pl-1">Who believe us</p>
     </div>

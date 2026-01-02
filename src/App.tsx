@@ -1,13 +1,17 @@
 import { BrowserRouter } from "react-router";
 import Router from "./Router";
-import Navbar from "./components/Navbar";
+import { lazy, Suspense } from "react";
+
+const Navbar = lazy(() => import("./components/Navbar"));
 
 function App() {
   return (
     <>
       <div>
         <BrowserRouter>
-          <Navbar />
+          <Suspense>
+            <Navbar />
+          </Suspense>
           <div className="pt-18 max-w-7xl mx-auto">
             <Router />
           </div>

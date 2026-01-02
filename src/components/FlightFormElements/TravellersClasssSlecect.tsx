@@ -1,9 +1,10 @@
 import { ChevronDown, Users } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion"; // Correct import (motion/react → framer-motion)
 import { useState } from "react";
 
-function TravellersClasssSlecect() {
-  const [showTravellers, setShowTravellers] = useState(false);
+
+function TravellersClassSelect() {
+  const [showDropdown, setShowDropdown] = useState(false);
   const [selectedClass, setSelectedClass] = useState("economy");
 
   const [travellers, setTravellers] = useState({
@@ -11,13 +12,14 @@ function TravellersClasssSlecect() {
     children: 0,
     infants: 0,
   });
+
   const handleTravellerChange = (
     type: keyof typeof travellers,
     delta: number
   ) => {
     setTravellers((prev) => ({
       ...prev,
-      [type]: Math.max(0, prev[type] + delta),
+      [type]: Math.max(type === "adults" ? 1 : 0, prev[type] + delta), // Adults minimum 1
     }));
   };
 
@@ -38,7 +40,8 @@ function TravellersClasssSlecect() {
   };
 
   return (
-    <div className="flex-1   mt-4 p-1">
+    <div className="relative flex-1 mt-4">
+      {/* Label */}
       <div className="flex items-center gap-3 mb-2">
         <div className="p-2 bg-blue-100 rounded-lg">
           <Users className="w-5 h-5 text-blue-600" />
@@ -47,74 +50,79 @@ function TravellersClasssSlecect() {
           Travellers & Class
         </label>
       </div>
+
+      {/* Trigger Button */}
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        onClick={() => setShowTravellers(!showTravellers)}
-        className="w-60 p-3 rounded-xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+        onClick={() => setShowDropdown(!showDropdown)}
+        className="w-full max-w-md p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+        aria-label={`Select travellers and class: ${totalTravellers} travellers, ${selectedClass}`}
       >
         <div>
           <div className="text-lg font-bold text-gray-900">
-            {totalTravellers} Traveller
-            {totalTravellers !== 1 ? "s" : ""}
+            {totalTravellers} Traveller{totalTravellers !== 1 ? "s" : ""}
           </div>
-          <div className="text-gray-600 text-sm capitalize">
+          <div className="text-sm text-gray-600 capitalize">
             {travelClasses.find((c) => c.id === selectedClass)?.label}
           </div>
         </div>
-        <ChevronDown className="text-gray-400" />
+        <ChevronDown
+          className={`text-gray-400 transition-transform ${
+            showDropdown ? "rotate-180" : ""
+          }`}
+        />
       </motion.button>
 
+      {/* Dropdown */}
       <AnimatePresence>
-        {showTravellers && (
+        {showDropdown && (
           <motion.div
             variants={dropdownVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute z-10 mt-2 w-84 max-w-md bg-white border border-gray-200 rounded-2xl shadow-2xl p-6"
+            className="absolute top-full left-0 right-0 mt-2 w-full max-w-md bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 z-50 overflow-hidden"
           >
-            {/* Traveller Count */}
-            <div className="space-y-4 mb-6">
+            {/* Passengers Section */}
+            <div className="space-y-6 mb-6">
               <h4 className="font-semibold text-gray-900">Passengers</h4>
               {[
-                {
-                  key: "adults" as const,
-                  label: "Adults",
-                  description: "12+ years",
-                },
+                { key: "adults" as const, label: "Adults", desc: "12+ years" },
                 {
                   key: "children" as const,
                   label: "Children",
-                  description: "2-11 years",
+                  desc: "2-11 years",
                 },
                 {
                   key: "infants" as const,
                   label: "Infants",
-                  description: "Under 2 years",
+                  desc: "Under 2 years",
                 },
-              ].map(({ key, label, description }) => (
+              ].map(({ key, label, desc }) => (
                 <div key={key} className="flex items-center justify-between">
                   <div>
                     <div className="font-medium text-gray-900">{label}</div>
-                    <div className="text-sm text-gray-500">{description}</div>
+                    <div className="text-sm text-gray-500">{desc}</div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       onClick={() => handleTravellerChange(key, -1)}
-                      className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 disabled:opacity-50"
-                      disabled={travellers[key] === 0}
+                      disabled={travellers[key] <= (key === "adults" ? 1 : 0)}
+                      className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      aria-label={`Decrease ${label}`}
                     >
                       -
                     </motion.button>
-                    <span className="w-8 text-center font-bold">
+                    <span className="w-10 text-center font-bold text-lg">
                       {travellers[key]}
                     </span>
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       onClick={() => handleTravellerChange(key, 1)}
-                      className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                      className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                      aria-label={`Increase ${label}`}
                     >
                       +
                     </motion.button>
@@ -123,8 +131,8 @@ function TravellersClasssSlecect() {
               ))}
             </div>
 
-            {/* Class Selection */}
-            <div>
+            {/* Travel Class Section */}
+            <div className="mb-6">
               <h4 className="font-semibold text-gray-900 mb-4">Travel Class</h4>
               <div className="grid grid-cols-2 gap-3">
                 {travelClasses.map((cls) => (
@@ -133,9 +141,9 @@ function TravellersClasssSlecect() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedClass(cls.id)}
-                    className={`p-3 rounded-lg border-2 transition-all duration-300 ${
+                    className={`p-4 rounded-lg border-2 font-medium transition-all ${
                       selectedClass === cls.id
-                        ? "border-blue-500 bg-blue-50 text-blue-600"
+                        ? "border-blue-500 bg-blue-50 text-blue-700"
                         : "border-gray-200 hover:border-blue-300"
                     }`}
                   >
@@ -144,17 +152,29 @@ function TravellersClasssSlecect() {
                 ))}
               </div>
             </div>
-            <button
-              onClick={() => setShowTravellers(!showTravellers)}
-              className="flex justify-center items-center font-medium text-blue-600 p-4 h-10 w-full  border-2 border-blue-600  rounded-md mt-6"
+
+            {/* Done Button */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setShowDropdown(false)}
+              className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Close
-            </button>
+              Done
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Backdrop for mobile (click outside to close) */}
+      {showDropdown && (
+        <div
+          className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+          onClick={() => setShowDropdown(false)}
+        />
+      )}
     </div>
   );
 }
 
-export default TravellersClasssSlecect;
+export default TravellersClassSelect;
