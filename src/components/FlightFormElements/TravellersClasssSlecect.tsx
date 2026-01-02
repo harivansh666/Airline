@@ -2,7 +2,6 @@ import { ChevronDown, Users } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion"; // Correct import (motion/react → framer-motion)
 import { useState } from "react";
 
-
 function TravellersClassSelect() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedClass, setSelectedClass] = useState("economy");
@@ -40,9 +39,9 @@ function TravellersClassSelect() {
   };
 
   return (
-    <div className="relative flex-1 mt-4">
+    <div className="relative flex-1 ">
       {/* Label */}
-      <div className="flex items-center gap-3 mb-2">
+      <div className="flex items-center gap-3 mb-2 bg-amber-400">
         <div className="p-2 bg-blue-100 rounded-lg">
           <Users className="w-5 h-5 text-blue-600" />
         </div>
@@ -56,7 +55,7 @@ function TravellersClassSelect() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setShowDropdown(!showDropdown)}
-        className="w-full max-w-md p-4 rounded-xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+        className="w-full max-w-md p-2 rounded-xl border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
         aria-label={`Select travellers and class: ${totalTravellers} travellers, ${selectedClass}`}
       >
         <div>
@@ -82,7 +81,7 @@ function TravellersClassSelect() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute top-full left-0 right-0 mt-2 w-full max-w-md bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 z-50 overflow-hidden"
+            className="absolute top-full   right-30  mt-2 w-full max-w-md bg-orange-600 border border-gray-200 rounded-2xl shadow-2xl p-6 z-50 overflow-hidden"
           >
             {/* Passengers Section */}
             <div className="space-y-6 mb-6">

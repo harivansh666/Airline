@@ -8,12 +8,14 @@ interface SlideImageProps {
 }
 
 const SlideImage = React.memo(({ imageUrl, index }: SlideImageProps) => (
-  <motion.img
-    src={imageUrl}
-    alt={`slide-${index}`}
-    className="absolute inset-0 w-full h-full object-center rounded-lg opacity-100"
-    loading="lazy"
-  />
+  <div>
+    <motion.img
+      src={imageUrl}
+      alt={`slide-${index}`}
+      className="absolute inset-0 w-full h-full object-center rounded-md opacity-100 p-1"
+      loading="lazy"
+    />
+  </div>
 ));
 
 SlideImage.displayName = "SlideImage";
@@ -27,6 +29,7 @@ const SliderComponent = React.memo(() => {
   const images = useMemo(
     () => [
       "https://res.cloudinary.com/desslvu1w/image/upload/v1767117341/airindia_far_east_vovngw.jpg",
+      "https://res.cloudinary.com/desslvu1w/image/upload/v1767373019/banner2_eliva6.png",
       "https://res.cloudinary.com/desslvu1w/image/upload/v1767245046/british-airways-lg_bjvopq.jpg",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2024_1/indigo_banner_2.jpg?v=0.03",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2025/airindia_far_east.jpg?v=0.03",
@@ -140,9 +143,9 @@ const SliderComponent = React.memo(() => {
   //   );
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 mt-4 ">
+    <div className="w-full max-w-7xl mx-auto pl-0.5 pr-0.5    mt-4 ">
       {/* Slider Container */}
-      <div className="relative h-48 sm:h-64 md:h-80 lg:h-96  sm:rounded-xl overflow-hidden shadow-lg rounded-2xl">
+      <div className="relative h-52 sm:h-64 md:h-80 lg:h-96  sm:rounded-xl overflow-hidden shadow-lg rounded-sm">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentSlide}
@@ -160,7 +163,7 @@ const SliderComponent = React.memo(() => {
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
             // onDragEnd={handleDragEnd}
-            className="absolute inset-0 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl cursor-grab active:cursor-grabbing"
+            className="absolute inset-0 p-3 sm:p-4 md:p-6 rounded-sm sm:rounded-xl cursor-grab active:cursor-grabbing"
           >
             {/* Image Display */}
             <SlideImage
@@ -176,14 +179,14 @@ const SliderComponent = React.memo(() => {
           aria-label="Previous slide"
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 transition-all duration-200 backdrop-blur-sm z-10"
         >
-          <ChevronLeft className="w-5 h-5 text-black" />
+          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
         </button>
         <button
           onClick={nextSlide}
           aria-label="Next slide"
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 transition-all duration-200 backdrop-blur-sm z-10"
         >
-          <ChevronRight className="w-5 h-5 text-black" />
+          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
         </button>
       </div>
 

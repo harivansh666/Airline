@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
-import { StarIcon } from "lucide-react";
+import { Star, StarHalf, StarIcon } from "lucide-react";
 
 const RatingPersons = React.memo(() => {
   const people = [
@@ -97,15 +97,27 @@ const RatingPersons = React.memo(() => {
     },
   ];
   return (
-    <div className="relative mt-8 p-2 mb-12">
-      <h1 className="text-2xl font-bold text-gray-800 mb-2 ml-2">
-        Our Permanent customers
-      </h1>
+    <div className="relative mt-8  mb-12 border-t-2 border-b-2 pb-4 ">
+      <div>
+        <h1 className="text-2xl font-medium text-gray-800 mb-2 ">
+          Our Permanent customers
+        </h1>
+        <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
+      </div>
+
       <div className="flex flex-row items-center justify-start p-2 gap-1 w-full">
         <AnimatedTooltip items={people} />
         <p className="ml-4 text-gray-500 animate-pulse">click me</p>
       </div>
       <p className="text-gray-500 pl-1">Who believe us</p>
+      <h1 className="text-2xl font-semibold">Excellent (4.7) 7,040 Reviews</h1>
+      <div className="flex flex-row">
+        <Star size={30} fill="#FFB900" stroke="none" />
+        <Star size={30} fill="#FFB900" stroke="none" />
+        <Star size={30} fill="#FFB900" stroke="none" />
+        <Star size={30} fill="#FFB900" stroke="none" />
+        <StarHalf size={30} fill="#FFB900" stroke="none" />
+      </div>
     </div>
   );
 });
