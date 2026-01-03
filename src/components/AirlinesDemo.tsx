@@ -18,7 +18,6 @@ const airlines = [
     img: "https://res.cloudinary.com/desslvu1w/image/upload/v1767009878/aksa_exwgzt.png",
     link: "https://www.ticketstoindia.co.uk/airlines/gulf-airways.aspx",
   },
-
   {
     name: "SpiceJet",
     img: "https://res.cloudinary.com/desslvu1w/image/upload/v1767010032/99ad85da-f390-4e66-9283-43b1ff9a5e3c.png",
@@ -42,29 +41,31 @@ const AirlinesDemo = React.memo(() => {
       <h2 className="text-2xl font-medium text-gray-800 mb-2">
         Popular Domestic Airlines
       </h2>
-      <div className="w-16 h-1 bg-gradient-to-r from-blue-700  to-blue-500 rounded-full "></div>
+      <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
 
-      <div className="flex sm:justify-center  overflow-auto  md:overflow-visible md:flex-wrap  sm:gap-28 gap-8 border border-gray-300 rounded-2xl p-5 mt-4">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border border-gray-300 rounded-2xl p-4 sm:p-6 mt-4">
         {airlines.map((airline, index) => (
-          <Link to={airline.link} key={index}>
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center p-1.5"
-            >
+          <Link
+            to={airline.link}
+            key={index}
+            className="flex flex-col items-center justify-center p-2 hover:bg-gray-50 rounded-xl transition-colors"
+          >
+            <div className="w-22 h-22 sm:w-20 sm:h-20 flex items-center justify-center">
               <LazyLoadImage
                 src={airline.img}
                 alt={airline.name}
                 loading="lazy"
-                className=" w-15 object-cover"
+                className="max-w-full max-h-full object-contain"
               />
-              <p className="text-center text-nowrap  text-blue-600 sm:text-[14px] text-[12px] font-medium mt-2">
-                {airline.name}
-              </p>
             </div>
+            <p className="text-center text-blue-600 text-sm sm:text-base font-medium mt-3">
+              {airline.name}
+            </p>
           </Link>
         ))}
       </div>
     </div>
   );
 });
+
 export default AirlinesDemo;

@@ -12,14 +12,15 @@ const Navbar = React.memo(() => {
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 mx justify-between sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div>
             <img
               src="https://res.cloudinary.com/desslvu1w/image/upload/v1767010770/ticketstoindia-logo-christmas_kfprad.png"
               alt="Logo"
-              className="w-68"
+              loading="lazy"
+              className="w-46 sm:w-64"
               fetchPriority="high"
             />
           </div>
@@ -28,8 +29,8 @@ const Navbar = React.memo(() => {
           <div className="hidden  relative n sm:flex space-x-9 items-center">
             <Link
               to="/"
-              onMouseEnter={() => setShowPopup(true)}
-              onMouseLeave={() => setShowPopup(false)}
+              // onMouseEnter={() => setShowPopup(true)}
+              // onMouseLeave={() => setShowPopup(false)}
               className=" text-gray-700 hover:text-blue-600 text-md font-medium"
             >
               Home
@@ -107,6 +108,7 @@ const Navbar = React.memo(() => {
           <img
             src="https://res.cloudinary.com/desslvu1w/image/upload/v1767117341/airindia_far_east_vovngw.jpg"
             alt="visa people image"
+            loading="lazy"
             className="w-70 h-40   object-cover rounded-b-2xl"
           />
         </div>
@@ -129,20 +131,13 @@ const Navbar = React.memo(() => {
               Home
             </Link>
             <Link
-              to="/features"
+              to="/hotdeals"
               className="block text-gray-700 hover:text-blue-600 text-base font-medium py-2"
               onClick={toggleMenu}
             >
-              Features
+              Hot Deals
             </Link>
 
-            <Link
-              to="/visa"
-              className="block text-gray-700 hover:text-blue-600 text-base font-medium py-2"
-              onClick={toggleMenu}
-            >
-              Visa
-            </Link>
             <Link
               to="/countries"
               className="block text-gray-700 hover:text-blue-600 text-base font-medium py-2"
@@ -171,7 +166,6 @@ const Navbar = React.memo(() => {
         </div>
       </div>
 
-      {/* Backdrop for closing menu - FIXED: Lower opacity and proper z-index */}
       {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 sm:hidden z-40"

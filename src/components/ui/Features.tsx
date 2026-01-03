@@ -1,4 +1,4 @@
-import { CheckCircle, Phone, PlaneTakeoff } from "lucide-react";
+import { Phone } from "lucide-react";
 import React from "react";
 
 const Features = React.memo(() => {

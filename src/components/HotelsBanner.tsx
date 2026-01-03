@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import { Link } from "react-router-dom";
 
 const hotels = [
   {
@@ -16,7 +17,7 @@ const hotels = [
     rating: 8.3,
     reviewText: "Excellent",
     reviews: "699 Users",
-    price: "₹7,359",
+    price: "£7,359",
     badge: "Best Price Guarantee",
     discount: null,
     imageUrl:
@@ -29,7 +30,7 @@ const hotels = [
     rating: 6.3,
     reviewText: "Good",
     reviews: "22 Users",
-    price: "₹2,617",
+    price: "£2,617",
     badge: null,
     discount: "70% off",
     imageUrl: "https://gos3.ibcdn.com/c07b3272eeff11ed839f0a58a9feac02.jpg",
@@ -41,7 +42,7 @@ const hotels = [
     rating: 8.3,
     reviewText: "Excellent",
     reviews: "21+ Users",
-    price: "₹3,522",
+    price: "£3,522",
     badge: null,
     discount: null,
     imageUrl:
@@ -54,7 +55,7 @@ const hotels = [
     rating: 7.2,
     reviewText: "Very Good",
     reviews: "128 Users",
-    price: "₹776",
+    price: "£776",
     badge: null,
     discount: "48% off",
     imageUrl: "https://gos3.ibcdn.com/9fccb112-2211-411f-8a61-c45206c078f2.jpg",
@@ -66,7 +67,7 @@ const hotels = [
     rating: 8.5,
     reviewText: "Excellent",
     reviews: "478 Users",
-    price: "₹20,000+",
+    price: "£20,000+",
     badge: "Best Price Guarantee",
     discount: null,
     imageUrl:
@@ -76,7 +77,7 @@ const hotels = [
 
 function HotelsBanner() {
   return (
-    <div className="border-2 shadow-xl rounded-3xl p-6 mt-10 m-2">
+    <div className="border-2 shadow-xl rounded-3xl p-6 mt-10 bg-gradient-to-r from-orange-200">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">
@@ -103,6 +104,9 @@ function HotelsBanner() {
             >
               <Card className="overflow-hidden w-76 rounded-2xl shadow-md border-0 mb-2 ">
                 <div className="relative">
+                  <Link
+                    to={"https://www.ticketstoindia.co.uk/worldwide-hotels/"}
+                  >
                   <LazyLoadImage
                     src={hotel.imageUrl}
                     alt={hotel.name}
@@ -125,6 +129,7 @@ function HotelsBanner() {
                       {hotel.badge}
                     </div>
                   )}
+                  </Link>
                 </div>
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-lg truncate">
@@ -158,7 +163,7 @@ function HotelsBanner() {
           ))}
         </CarouselContent>
         <CarouselPrevious className="left-0" />
-        <CarouselNext className="right-0" />
+        <CarouselNext className="right-[-8px]" />
       </Carousel>
     </div>
   );

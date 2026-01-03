@@ -97,7 +97,7 @@ const RatingPersons = React.memo(() => {
     },
   ];
   return (
-    <div className="relative mt-8  mb-12 border-t-2 border-b-2 pb-4 ">
+    <div className="relative mt-8 p-2 mb-12 border-t-2 border-b-2 pb-4 ">
       <div>
         <h1 className="text-2xl font-medium text-gray-800 mb-2 ">
           Our Permanent customers
