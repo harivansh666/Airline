@@ -41,7 +41,7 @@ function FlightCard({ flight }: FlightProps) {
           </div>
         </div>
         <div className="flex justify-center w-30 h-full ">
-          <div className="text-2xl font-black text-blue-600 border-l-2 border-gray-300 p-2 ">
+          <div className="text-1xl font-black text-blue-600 border-l-2 border-gray-300 p-2 ">
             £{flight.price}
           </div>
         </div>
