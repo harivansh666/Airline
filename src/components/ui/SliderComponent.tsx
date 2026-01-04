@@ -28,9 +28,9 @@ const SliderComponent = React.memo(() => {
   // Hardcoded images array - EDIT THESE URLs
   const images = useMemo(
     () => [
-      "https://res.cloudinary.com/desslvu1w/image/upload/v1767117341/airindia_far_east_vovngw.jpg",
-      "https://res.cloudinary.com/desslvu1w/image/upload/v1767373019/banner2_eliva6.png",
-      "https://res.cloudinary.com/desslvu1w/image/upload/v1767245046/british-airways-lg_bjvopq.jpg",
+      "https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767117341/airindia_far_east_vovngw.jpg",
+      "https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767373019/banner2_eliva6.png",
+      "https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767245046/british-airways-lg_bjvopq.jpg",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2024_1/indigo_banner_2.jpg?v=0.03",
       "https://www.ticketstoindia.co.uk/holidaybanners/img/2025/airindia_far_east.jpg?v=0.03",
     ],

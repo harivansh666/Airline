@@ -16,7 +16,11 @@ import BookingTabs from "./FlightFormElements/BookingTabs";
 import { Calendar } from "./ui/calendar";
 import { useStore } from "@/store/statesStore";
 
-const FlightSearchForm = React.memo(() => {
+interface ShowFlightGridProp {
+  onSearch: () => void;
+}
+
+const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
   const setLoading = useStore((state) => state.setLoading);
   const setFetchdedFlight = useStore((state) => state.setFetchdedFlight);
   const airports = [
@@ -57,7 +61,7 @@ const FlightSearchForm = React.memo(() => {
     setToAirport(temp);
   };
 
-  const [tripType, setTripType] = useState<"one-way" | "round">("one-way");
+  const [tripType, setTripType] = useState<"one-way" | "round">("round");
 
   const dropdownVariants = {
     hidden: { opacity: 0, scale: 0.95, y: -10 },
@@ -168,6 +172,7 @@ const FlightSearchForm = React.memo(() => {
 
     setTimeout(() => {
       setLoading(false);
+      onSearch();
       setFetchdedFlight(true);
       console.log("Fetching flights...");
     }, 4000);

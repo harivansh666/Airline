@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useStore } from "@/store/statesStore";
 
 const RatingBar = lazy(() => import("@/components/ui/RatingBar"));
 const GetInspriation = lazy(
@@ -16,15 +17,18 @@ const Info = lazy(() => import("../components/Info"));
 const AirlinesDemo = lazy(() => import("../components/AirlinesDemo"));
 
 function Home() {
+  const showFlights = useStore((state) => state.showFlights);
+  const setShowFlights = useStore((state) => state.setShowFlights);
   return (
     <div>
       <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <FlightSearchForm />
+        <FlightSearchForm onSearch={() => setShowFlights(true)} />
       </Suspense>
-
-      <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
-        <FlightGrid />
-      </Suspense>
+      {showFlights && (
+        <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
+          <FlightGrid />
+        </Suspense>
+      )}
       <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
         <SliderComponent />
       </Suspense>
