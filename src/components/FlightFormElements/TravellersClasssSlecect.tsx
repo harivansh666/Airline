@@ -1,29 +1,29 @@
 import { ChevronDown, Users } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useStore } from "@/store/statesStore";
+
+interface TravellersData {
+  travellers: {
+    adults: number;
+    children: number;
+    infants: number;
+  };
+  totalTravellers: number;
+  travelClass: string;
+  travelClassLabel: string;
+}
 
 function TravellersClassSelect() {
+  const settravellerForm = useStore((state) => state.settravellerForm);
+
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedClass, setSelectedClass] = useState("economy");
-
   const [travellers, setTravellers] = useState({
     adults: 1,
     children: 0,
     infants: 0,
   });
-
-  const handleTravellerChange = (
-    type: keyof typeof travellers,
-    delta: number
-  ) => {
-    setTravellers((prev) => ({
-      ...prev,
-      [type]: Math.max(type === "adults" ? 1 : 0, prev[type] + delta), // Adults minimum 1
-    }));
-  };
-
-  const totalTravellers =
-    travellers.adults + travellers.children + travellers.infants;
 
   const travelClasses = [
     { id: "economy", label: "Economy" },
@@ -32,16 +32,43 @@ function TravellersClassSelect() {
     { id: "first", label: "First Class" },
   ];
 
+  const handleTravellerChange = (
+    type: keyof typeof travellers,
+    delta: number
+  ) => {
+    setTravellers((prev) => ({
+      ...prev,
+      [type]: Math.max(type === "adults" ? 1 : 0, prev[type] + delta),
+    }));
+  };
+
+  const totalTravellers =
+    travellers.adults + travellers.children + travellers.infants;
+
   const dropdownVariants = {
     hidden: { opacity: 0, scale: 0.95, y: -10 },
     visible: { opacity: 1, scale: 1, y: 0 },
     exit: { opacity: 0, scale: 0.95, y: -10 },
   };
 
+  const handleSubmit = () => {
+    const finalData: TravellersData = {
+      travellers: {
+        adults: travellers.adults,
+        children: travellers.children,
+        infants: travellers.infants,
+      },
+      totalTravellers,
+      travelClass: selectedClass,
+      travelClassLabel:
+        travelClasses.find((c) => c.id === selectedClass)?.label || "",
+    };
+    settravellerForm(finalData);
+  };
+
   return (
-    <div className="relative  ">
-      {/* Label */}
-      <div className="flex items-center gap-3  ">
+    <div className="relative">
+      <div className="flex items-center gap-3">
         <div className="p-2 bg-blue-100 rounded-lg">
           <Users className="w-5 h-5 text-blue-600" />
         </div>
@@ -75,7 +102,7 @@ function TravellersClassSelect() {
 
       {/* Dropdown */}
       <AnimatePresence>
-        <div className="sm:absolute z-50  ">
+        <div className="sm:absolute z-50">
           {showDropdown && (
             <motion.div
               variants={dropdownVariants}
@@ -166,6 +193,7 @@ function TravellersClassSelect() {
                 onClick={() => {
                   window.scrollTo(0, 0);
                   setShowDropdown(false);
+                  handleSubmit();
                 }}
                 className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
@@ -178,9 +206,9 @@ function TravellersClassSelect() {
 
       {/* Backdrop for mobile (click outside to close) */}
       {showDropdown && (
-        <div className="relative ">
+        <div className="relative">
           <div
-            className="bg-black/70 z-50  lg:hidden"
+            className="bg-black/70 z-50 lg:hidden"
             onClick={() => setShowDropdown(false)}
           />
         </div>

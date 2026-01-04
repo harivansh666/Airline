@@ -24,6 +24,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
   const setLoading = useStore((state) => state.setLoading);
   const isLoading = useStore((state) => state.isLoading);
   const setFetchdedFlight = useStore((state) => state.setFetchdedFlight);
+  const travellerForm = useStore((state) => state.travellerForm);
   const airports = [
     { code: "IXC", name: "Chandigarh" },
     { code: "DEL", name: "New Delhi" },
@@ -33,36 +34,23 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
     { code: "HYD", name: "Hyderabad" },
   ];
 
-  const [fromAirport, setFromAirport] = useState({
-    code: "",
-    name: "",
-  });
-  const [toAirport, setToAirport] = useState({
-    code: "",
-    name: "",
-  });
-  const [showFromDropdown, setShowFromDropdown] = useState(false);
-  const [showToDropdown, setShowToDropdown] = useState(false);
-
-  // Search/filter states
-  const [fromSearch, setFromSearch] = useState("");
-  const [toSearch, setToSearch] = useState("");
-
+  // Core state
+  const [fromAirport, setFromAirport] = useState({ code: "", name: "" });
+  const [toAirport, setToAirport] = useState({ code: "", name: "" });
+  const [tripType, setTripType] = useState<"one-way" | "round">("round");
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
     from: new Date(),
     to: new Date(2026, 1, 3),
   });
-  const [showCalender, setCalenderShow] = useState<boolean>(false);
+
+  // UI state
+  const [showFromDropdown, setShowFromDropdown] = useState(false);
+  const [showToDropdown, setShowToDropdown] = useState(false);
+  const [showCalender, setCalenderShow] = useState(false);
+  const [fromSearch, setFromSearch] = useState("");
+  const [toSearch, setToSearch] = useState("");
 
   const isMobile = useMobileDetection();
-
-  const handleSwapAirports = () => {
-    const temp = fromAirport;
-    setFromAirport(toAirport);
-    setToAirport(temp);
-  };
-
-  const [tripType, setTripType] = useState<"one-way" | "round">("round");
 
   const dropdownVariants = {
     hidden: { opacity: 0, scale: 0.95, y: -10 },
@@ -70,7 +58,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
     exit: { opacity: 0, scale: 0.95, y: -10 },
   };
 
-  // Handle from airport input change
+  // Airport selection handlers
   const handleFromChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase();
     setFromSearch(value);
@@ -82,28 +70,20 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
     );
 
     if (matchedAirport && value.length >= 3) {
-      setFromAirport({
-        code: matchedAirport.code,
-        name: matchedAirport.name,
-      });
+      setFromAirport(matchedAirport);
       setShowFromDropdown(false);
     } else {
       if (value.length > 0 && !showFromDropdown) {
         setShowFromDropdown(true);
       }
-      setFromAirport((prev) => ({
-        ...prev,
-        code: value,
-      }));
+      setFromAirport((prev) => ({ ...prev, code: value }));
     }
   };
 
-  // Handle to airport input change
   const handleToChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase();
     setToSearch(value);
 
-    // Check if input matches an airport code exactly
     const matchedAirport = airports.find(
       (airport) =>
         airport.code === value ||
@@ -111,38 +91,16 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
     );
 
     if (matchedAirport && value.length >= 3) {
-      setToAirport({
-        code: matchedAirport.code,
-        name: matchedAirport.name,
-      });
+      setToAirport(matchedAirport);
       setShowToDropdown(false);
     } else {
-      // Show dropdown if typing
       if (value.length > 0 && !showToDropdown) {
         setShowToDropdown(true);
       }
-      // Update toAirport with partial code
-      setToAirport((prev) => ({
-        ...prev,
-        code: value,
-      }));
+      setToAirport((prev) => ({ ...prev, code: value }));
     }
   };
 
-  // Filter airports based on search
-  const filteredFromAirports = airports.filter(
-    (airport) =>
-      airport.code.toLowerCase().includes(fromSearch.toLowerCase()) ||
-      airport.name.toLowerCase().includes(fromSearch.toLowerCase())
-  );
-
-  const filteredToAirports = airports.filter(
-    (airport) =>
-      airport.code.toLowerCase().includes(toSearch.toLowerCase()) ||
-      airport.name.toLowerCase().includes(toSearch.toLowerCase())
-  );
-
-  // Handle airport selection from dropdown
   const handleSelectFromAirport = (airport: { code: string; name: string }) => {
     setFromAirport(airport);
     setFromSearch(airport.code);
@@ -155,7 +113,29 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
     setShowToDropdown(false);
   };
 
-  // Format date for display
+  const handleSwapAirports = () => {
+    const temp = fromAirport;
+    setFromAirport(toAirport);
+    setToAirport(temp);
+
+    const tempSearch = fromSearch;
+    setFromSearch(toSearch);
+    setToSearch(tempSearch);
+  };
+
+  // Filter airports
+  const filteredFromAirports = airports.filter(
+    (airport) =>
+      airport.code.toLowerCase().includes(fromSearch.toLowerCase()) ||
+      airport.name.toLowerCase().includes(fromSearch.toLowerCase())
+  );
+
+  const filteredToAirports = airports.filter(
+    (airport) =>
+      airport.code.toLowerCase().includes(toSearch.toLowerCase()) ||
+      airport.name.toLowerCase().includes(toSearch.toLowerCase())
+  );
+
   const formatDate = (date: Date | undefined) => {
     if (!date) return "Select Date";
     const options: Intl.DateTimeFormatOptions = {
@@ -168,6 +148,23 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
   };
 
   const handleSubmit = () => {
+    // Build complete flight search data object
+    const flightSearchData = {
+      fromAirport: {
+        code: fromAirport.code,
+        name: fromAirport.name,
+      },
+      toAirport: {
+        code: toAirport.code,
+        name: toAirport.name,
+      },
+      tripType,
+      departureDate: dateRange?.from,
+      returnDate: tripType === "round" ? dateRange?.to : undefined,
+      travellerForm,
+    };
+
+    // Trigger loading and search
     setLoading(true);
     setFetchdedFlight(false);
 
@@ -175,7 +172,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
       setLoading(false);
       onSearch();
       setFetchdedFlight(true);
-      console.log("Fetching flights...");
+      console.log("Flights fetched with data:", flightSearchData);
     }, 4000);
   };
 
