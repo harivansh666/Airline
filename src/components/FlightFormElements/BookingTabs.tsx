@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Plane, Hotel, Recycle } from "lucide-react";
 import useMobileDetection from "@/hooks/useMobileDetection";
 
@@ -68,4 +68,4 @@ const BookingTabs = () => {
   );
 };
 
-export default BookingTabs;
+export default React.memo(BookingTabs);

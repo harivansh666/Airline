@@ -77,7 +77,7 @@ const hotels = [
 
 function HotelsBanner() {
   return (
-    <div className="border-2 shadow-xl rounded-3xl p-6 mt-10 bg-gradient-to-r from-orange-200">
+    <div className="border-1 shadow-xl rounded-3xl p-6 mt-10 bg-gradient-to-r from-orange-200">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">
@@ -107,28 +107,28 @@ function HotelsBanner() {
                   <Link
                     to={"https://www.ticketstoindia.co.uk/worldwide-hotels/"}
                   >
-                  <LazyLoadImage
-                    src={hotel.imageUrl}
-                    alt={hotel.name}
-                    className="w-full h-48 object-cover rounded-b-xl"
-                  />
-                  {hotel.discount && (
-                    <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      {hotel.discount}
-                    </div>
-                  )}
-                  {hotel.badge && (
-                    <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M10 2l3.09 6.26L20 9.27l-5 4.87 1.18 6.88L10 17.77l-6.18 3.25L5 14.14l-5-4.87 6.91-1.01L10 2z" />
-                      </svg>
-                      {hotel.badge}
-                    </div>
-                  )}
+                    <LazyLoadImage
+                      src={hotel.imageUrl}
+                      alt={hotel.name}
+                      className="w-full h-48 object-cover rounded-b-xl"
+                    />
+                    {hotel.discount && (
+                      <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                        {hotel.discount}
+                      </div>
+                    )}
+                    {hotel.badge && (
+                      <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M10 2l3.09 6.26L20 9.27l-5 4.87 1.18 6.88L10 17.77l-6.18 3.25L5 14.14l-5-4.87 6.91-1.01L10 2z" />
+                        </svg>
+                        {hotel.badge}
+                      </div>
+                    )}
                   </Link>
                 </div>
                 <CardContent className="p-4">

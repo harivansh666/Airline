@@ -6,13 +6,14 @@ import {
   Repeat,
   X,
 } from "lucide-react";
-import React, { useState, type ChangeEvent } from "react";
+import React, { lazy, useState, type ChangeEvent } from "react";
 import type { DateRange } from "react-day-picker";
-import { Calendar } from "./ui/calendar";
+// import { Calendar } from "./ui/calendar";
 import { AnimatePresence, motion } from "framer-motion";
 import TravellersClassSelect from "./FlightFormElements/TravellersClasssSlecect";
 import useMobileDetection from "@/hooks/useMobileDetection";
 import BookingTabs from "./FlightFormElements/BookingTabs";
+import { Calendar } from "./ui/calendar";
 
 const FlightSearchForm = React.memo(() => {
   const airports = [
@@ -163,7 +164,7 @@ const FlightSearchForm = React.memo(() => {
       {isMobile ? (
         <div className="relative scale-95 p-1">
           <BookingTabs />
-          <div className="border-2 border-gray-300 rounded-2xl relative">
+          <div className="border-1 border-gray-300 rounded-2xl relative">
             <div className="w-full p-1 mx-auto flex justify-center items-center flex-col mb-2">
               <motion.div className="mb-2">
                 <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200 mt-1">
@@ -409,7 +410,7 @@ const FlightSearchForm = React.memo(() => {
       ) : (
         <div className="w-full ">
           <BookingTabs />
-          <div className="border-2 w-full p-4 rounded-2xl ">
+          <div className="border-1 w-full p-4 rounded-2xl ">
             <motion.div className="mb-2">
               <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200">
                 <div className="flex gap-2">

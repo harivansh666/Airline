@@ -1,12 +1,14 @@
-import FlightGrid from "@/components/FetchedFlights/FlightGrid";
-import FlightSearchForm from "@/components/FlightSearchForm";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 
+const FlightGrid = lazy(() => import("@/components/FetchedFlights/FlightGrid"));
+const FlightSearchForm = lazy(() => import("@/components/FlightSearchForm"));
 const HotDeals = React.memo(() => {
   return (
     <div className="max-w-7xl mx-auto">
-      <FlightSearchForm />
-      <FlightGrid />
+      <Suspense fallback={"loding"}>
+        <FlightSearchForm />
+        <FlightGrid />
+      </Suspense>
     </div>
   );
 });

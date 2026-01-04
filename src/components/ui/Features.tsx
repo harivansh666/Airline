@@ -40,6 +40,7 @@ const Features = React.memo(() => {
               <img
                 src="https://res.cloudinary.com/desslvu1w/image/upload/v1767365808/IATAlogo.svg_asjlk5.png"
                 className="w-20  text-purple-600"
+                loading="lazy"
               />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -52,6 +53,7 @@ const Features = React.memo(() => {
               <img
                 src="https://res.cloudinary.com/desslvu1w/image/upload/v1767366010/atol-protected-vector-logo_go3exe.png"
                 className="w-16  text-purple-600"
+                loading="lazy"
               />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">

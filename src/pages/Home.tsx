@@ -1,9 +1,11 @@
 import { lazy, Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import RatingBar from "@/components/ui/RatingBar";
-import GetInspriation from "@/components/carousel/GetInspriation";
-import FlightGrid from "@/components/FetchedFlights/FlightGrid";
 
+const RatingBar = lazy(() => import("@/components/ui/RatingBar"));
+const GetInspriation = lazy(
+  () => import("@/components/carousel/GetInspriation")
+);
+const FlightGrid = lazy(() => import("@/components/FetchedFlights/FlightGrid"));
 const HotelsBanner = lazy(() => import("@/components/HotelsBanner"));
 const FlightSearchForm = lazy(() => import("../components/FlightSearchForm"));
 const Features = lazy(() => import("@/components/ui/Features"));
