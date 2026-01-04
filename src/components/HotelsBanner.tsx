@@ -77,7 +77,7 @@ const hotels = [
 
 function HotelsBanner() {
   return (
-    <div className="border-1 shadow-xl rounded-3xl p-6 mt-10 bg-gradient-to-r from-orange-200">
+    <div className="border-1  shadow-xl rounded-3xl p-6 mt-6 sm:mt-5 bg-gradient-to-r from-orange-200">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-800">

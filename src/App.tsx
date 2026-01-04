@@ -3,7 +3,7 @@ import Router from "./Router";
 import { lazy, Suspense } from "react";
 import Loading from "./components/ui/Loading";
 
-const Navbar = lazy(() => import("./components/Navbar"));
+const Navbar = lazy(() => import("./components/Navbar/Navbar"));
 const Footer = lazy(() => import("./components/Footer"));
 function App() {
   return (

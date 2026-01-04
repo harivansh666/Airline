@@ -39,7 +39,7 @@ function TravellersClassSelect() {
   };
 
   return (
-    <div className="relative flex-1 ">
+    <div className="relative  ">
       {/* Label */}
       <div className="flex items-center gap-3  ">
         <div className="p-2 bg-blue-100 rounded-lg">
@@ -82,7 +82,7 @@ function TravellersClassSelect() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="mt-2 w-full  max-w-md border border-gray-200 bg-gray-100 rounded-2xl shadow-2xl p-6 z-50 overflow-hidden"
+              className="mt-1 w-full max-w-md border border-gray-200 bg-gray-100 rounded-2xl shadow-2xl p-7 z-50 overflow-hidden"
             >
               {/* Passengers Section */}
               <div className="space-y-6 mb-6">
@@ -163,7 +163,10 @@ function TravellersClassSelect() {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => setShowDropdown(false)}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setShowDropdown(false);
+                }}
                 className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Done

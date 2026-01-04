@@ -1,9 +1,8 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, useState } from "react";
 import { Link } from "react-router";
-import { Skeleton } from "./ui/skeleton";
 import useMobileDetection from "@/hooks/useMobileDetection";
 
-const MobileSlide = lazy(() => import("./Navbar/MobileSlide"));
+const MobileSlide = lazy(() => import("./MobileSlide"));
 
 const Navbar = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

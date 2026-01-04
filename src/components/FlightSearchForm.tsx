@@ -6,7 +6,7 @@ import {
   Repeat,
   X,
 } from "lucide-react";
-import React, { lazy, useState, type ChangeEvent } from "react";
+import React, { useState, type ChangeEvent } from "react";
 import type { DateRange } from "react-day-picker";
 // import { Calendar } from "./ui/calendar";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,8 +14,11 @@ import TravellersClassSelect from "./FlightFormElements/TravellersClasssSlecect"
 import useMobileDetection from "@/hooks/useMobileDetection";
 import BookingTabs from "./FlightFormElements/BookingTabs";
 import { Calendar } from "./ui/calendar";
+import { useStore } from "@/store/statesStore";
 
 const FlightSearchForm = React.memo(() => {
+  const setLoading = useStore((state) => state.setLoading);
+  const setFetchdedFlight = useStore((state) => state.setFetchdedFlight);
   const airports = [
     { code: "IXC", name: "Chandigarh" },
     { code: "DEL", name: "New Delhi" },
@@ -41,8 +44,8 @@ const FlightSearchForm = React.memo(() => {
   const [toSearch, setToSearch] = useState("");
 
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
-    from: new Date(2025, 5, 12),
-    to: new Date(2025, 6, 19),
+    from: new Date(),
+    to: new Date(2026, 1, 3),
   });
   const [showCalender, setCalenderShow] = useState<boolean>(false);
 
@@ -159,8 +162,19 @@ const FlightSearchForm = React.memo(() => {
     return date.toLocaleDateString("en-US", options);
   };
 
+  const handleSubmit = () => {
+    setLoading(true);
+    setFetchdedFlight(false);
+
+    setTimeout(() => {
+      setLoading(false);
+      setFetchdedFlight(true);
+      console.log("Fetching flights...");
+    }, 4000);
+  };
+
   return (
-    <div className="rounded-2xl ">
+    <div className="rounded-2xl">
       {isMobile ? (
         <div className="relative scale-95 p-1">
           <BookingTabs />
@@ -403,12 +417,19 @@ const FlightSearchForm = React.memo(() => {
                   </div>
                   <TravellersClassSelect />
                 </div>
+
+                <button
+                  onClick={handleSubmit}
+                  className="w-full h-14 bg-gradient-to-r from-blue-600 to-blue-700 border-2 text-lg text-white tracking-wide rounded-md"
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="w-full ">
+        <div className="w-full  ">
           <BookingTabs />
           <div className="border-1 w-full p-4 rounded-2xl ">
             <motion.div className="mb-2">
@@ -598,7 +619,7 @@ const FlightSearchForm = React.memo(() => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setCalenderShow(!showCalender)}
-                    className="w-60 p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+                    className="p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
                   >
                     <div>
                       <div className="text-lg font-bold text-gray-900">
@@ -610,9 +631,9 @@ const FlightSearchForm = React.memo(() => {
                 </div>
 
                 {/*  Return Date */}
-                <div>
+                <div className="">
                   {tripType === "round" && (
-                    <div className="flex-1 items-center gap-3 mb-2 ml-0 mt-4">
+                    <div className="flex-1 items-center gap-3 mb-2  ">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="p-2 bg-blue-100 rounded-lg">
                           <CalendarDays className="w-5 h-5 text-blue-600" />
@@ -625,7 +646,7 @@ const FlightSearchForm = React.memo(() => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setCalenderShow(!showCalender)}
-                        className="w-60 p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+                        className="p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
                       >
                         <div>
                           <div className="text-lg font-bold text-gray-900">
@@ -638,7 +659,16 @@ const FlightSearchForm = React.memo(() => {
                   )}
                 </div>
                 {/* Travellers & Class */}
-                <TravellersClassSelect />
+                <div className="">
+                  <TravellersClassSelect />
+                </div>
+
+                <button
+                  onClick={handleSubmit}
+                  className="w-40 h-14 bg-gradient-to-r from-blue-600 to-blue-700 border-2 text-lg text-white tracking-wide rounded-md"
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>
@@ -649,14 +679,25 @@ const FlightSearchForm = React.memo(() => {
       {showCalender && (
         <div className=" fixed inset-0 bg-black/50 flex items-center  flex-col justify-center z-50 p-4 ">
           <div className="rounded-xl shadow-2xl relative ">
-            <Calendar
-              mode="range"
-              defaultMonth={dateRange?.from}
-              selected={dateRange}
-              onSelect={setDateRange}
-              numberOfMonths={isMobile ? 1 : 2}
-              className="rounded-lg border shadow-sm p-4"
-            />
+            {tripType === "one-way" ? (
+              <Calendar
+                mode="single"
+                defaultMonth={dateRange?.from}
+                selected={dateRange?.from}
+                // onSelect={setDateRange(dateRange?.from)}
+                numberOfMonths={isMobile ? 1 : 1}
+                className="rounded-lg border shadow-sm p-4"
+              />
+            ) : (
+              <Calendar
+                mode="range"
+                defaultMonth={dateRange?.from}
+                selected={dateRange}
+                onSelect={setDateRange}
+                numberOfMonths={isMobile ? 1 : 2}
+                className="rounded-lg border shadow-sm p-4"
+              />
+            )}
 
             <div className="w-full flex justify-center items-center mt-1">
               <button
