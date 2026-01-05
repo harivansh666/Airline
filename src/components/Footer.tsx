@@ -1,12 +1,12 @@
 function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-blue-500 via-slate-800 to-slate-900 text-white mt-12">
+    <footer className="bg-gray-200   mt-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-1">
-            <h2 className="text-4xl font-bold mb-4 text-white ">
+            <h2 className="text-4xl font-bold mb-4 text-gray-900 ">
               Ticketstoindia
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
@@ -15,10 +15,10 @@ function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full   flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-8 h-8 hover:bg-gray-100"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -27,10 +27,10 @@ function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-blue-400 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-8 h-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -39,10 +39,10 @@ function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 hover:bg-pink-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 rounded-full  flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-8 h-8"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -54,7 +54,7 @@ function Footer() {
 
           {/* Popular Destinations */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+            <h3 className="text-lg font-semibold mb-6 text-gray-900">
               Popular Destinations
             </h3>
             <ul className="space-y-3 text-sm">
@@ -69,7 +69,7 @@ function Footer() {
                 <li key={city}>
                   <a
                     href="#"
-                    className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                    className="text-gray-700 hover:text-gray-500 underline hover:translate-x-1 inline-block transition-all duration-200"
                   >
                     {city}
                   </a>
@@ -80,7 +80,7 @@ function Footer() {
 
           {/* Airlines */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+            <h3 className="text-lg font-semibold mb-6 text-gray-900">
               Top Airlines
             </h3>
             <ul className="space-y-3 text-sm">
@@ -95,7 +95,7 @@ function Footer() {
                 <li key={airline}>
                   <a
                     href="#"
-                    className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                    className="text-gray-700 hover:text-white hover:text-gray-500 underline  hover:translate-x-1 inline-block transition-all duration-200"
                   >
                     {airline}
                   </a>
@@ -106,7 +106,7 @@ function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+            <h3 className="text-lg font-semibold mb-6 text-gray-900">
               Quick Links
             </h3>
             <ul className="space-y-3 text-sm">
@@ -121,7 +121,7 @@ function Footer() {
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-200"
+                    className="text-gray-700 hover:text-white hover:text-gray-500 underline hover:translate-x-1 inline-block transition-all duration-200"
                   >
                     {link}
                   </a>

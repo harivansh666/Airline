@@ -28,7 +28,7 @@ function MobileSlide({ toggleMenu, isMenuOpen }: ChildComponentProps) {
         <div className="p-4 space-y-4">
           <button
             onClick={toggleMenu}
-            className="text-gray-500 w-6 h-6 bg-gray-200 rounded-full float-right text-sm"
+            className="text-gray-900 w-6 h-6 bg-gray-200 rounded-full float-right text-sm"
             aria-label="Close menu"
           >
             ✕
@@ -66,7 +66,7 @@ function MobileSlide({ toggleMenu, isMenuOpen }: ChildComponentProps) {
             </Link> */}
             <Link
               to="/contact"
-              className="block bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium mt-4"
+              className="block bg-gradient-to-r from-orange-400 to-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-base font-medium mt-4"
               onClick={toggleMenu}
             >
               Book Free Consultation

@@ -15,7 +15,7 @@ const GlopBanner = React.memo(() => {
           <Skeleton className="w-full h-60 bg-gray-200 rounded-2xl mt-4" />
         </div>
       ) : (
-        <div className="flex flex-col sm:flex-row p-2 gap-2  ">
+        <div className="flex flex-col sm:flex-row p-2 gap-2 shadow-lg rounded-2xl mt-4">
           <Carousel
             opts={{
               align: "start",
@@ -30,7 +30,7 @@ const GlopBanner = React.memo(() => {
             <CarouselContent>
               {Array.from({ length: 2 }).map((_, index) => (
                 <CarouselItem key={index} className=" overflow-hidden">
-                  <div className="flex  justify-center items-center h-60 rounded-2xl p-4 bg-blue-700  object-cover  ">
+                  <div className="flex   justify-center items-center h-60 rounded-2xl p-4 bg-blue-700  object-cover  ">
                     <div>
                       <h2 className="font-semibold text-2xl text-nowrap text-white">
                         Our Agents

@@ -19,7 +19,7 @@ const Navbar = React.memo(() => {
           {/* Logo */}
           <div>
             <img
-              src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767010770/ticketstoindia-logo-christmas_kfprad.png"
+              src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767613911/ticketstoindia-logo_jb4tta.png"
               alt="Logo"
               loading="lazy"
               className="w-46 sm:w-64"
@@ -33,19 +33,19 @@ const Navbar = React.memo(() => {
               to="/"
               // onMouseEnter={() => setShowPopup(true)}
               // onMouseLeave={() => setShowPopup(false)}
-              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-gray-950 text-md font-medium"
             >
               Home
             </Link>{" "}
             <Link
               to="/hotdeals"
-              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-gray-950 text-md font-medium"
             >
               Hot Deals
             </Link>
             <Link
               to="/countries"
-              className=" text-gray-700 hover:text-blue-600 text-md font-medium"
+              className=" text-gray-700 hover:text-gray-950 text-md font-medium"
             >
               Countries
             </Link>
@@ -57,7 +57,7 @@ const Navbar = React.memo(() => {
             </Link> */}
             <Link
               to="/contact"
-              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium"
+              className="bg-gradient-to-r from-orange-400 to-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium"
             >
               Book Consultation
             </Link>

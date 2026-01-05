@@ -21,9 +21,12 @@ function Home() {
   const setShowFlights = useStore((state) => state.setShowFlights);
   return (
     <div>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <FlightSearchForm onSearch={() => setShowFlights(true)} />
-      </Suspense>
+      <div className="sm:pt-3 max-w-7xl mx-auto">
+        <img src="" alt="" />
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <FlightSearchForm onSearch={() => setShowFlights(true)} />
+        </Suspense>
+      </div>
       {showFlights && (
         <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
           <FlightGrid />
@@ -32,7 +35,6 @@ function Home() {
       <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
         <SliderComponent />
       </Suspense>
-
       <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
         <RatingBar />
       </Suspense>

@@ -68,9 +68,9 @@ function TravellersClassSelect() {
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-3">
-        <div className="p-2 bg-blue-100 rounded-lg">
-          <Users className="w-5 h-5 text-blue-600" />
+      <div className="flex items-center gap-3 mb-2">
+        <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+          <Users className="w-5 h-5 text-white " />
         </div>
         <label className="text-sm font-medium text-gray-500">
           Travellers & Class
@@ -82,14 +82,14 @@ function TravellersClassSelect() {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setShowDropdown(!showDropdown)}
-        className="w-full max-w-md p-2 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
+        className="w-full max-w-md p-2 rounded-xl border-1 border-gray-200 hover:border-orange-200 transition-all duration-300 bg-white text-left flex justify-between items-center"
         aria-label={`Select travellers and class: ${totalTravellers} travellers, ${selectedClass}`}
       >
         <div>
-          <div className="text-lg font-bold text-gray-900">
+          <div className="text-lg font-medium text-gray-900">
             {totalTravellers} Traveller{totalTravellers !== 1 ? "s" : ""}
           </div>
-          <div className="text-sm text-gray-600 capitalize">
+          <div className="text-xs text-gray-600 capitalize">
             {travelClasses.find((c) => c.id === selectedClass)?.label}
           </div>
         </div>
@@ -174,9 +174,9 @@ function TravellersClassSelect() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedClass(cls.id)}
-                      className={`p-4 rounded-lg border-2 font-medium transition-all ${
+                      className={`p-2 rounded-lg border-2 font-medium transition-all ${
                         selectedClass === cls.id
-                          ? "border-blue-500 bg-blue-50 text-blue-700"
+                          ? "border-orange-500 bg-blue-50 text-gray-800"
                           : "border-gray-200 hover:border-blue-300"
                       }`}
                     >
@@ -195,7 +195,7 @@ function TravellersClassSelect() {
                   setShowDropdown(false);
                   handleSubmit();
                 }}
-                className="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full py-3 bg-orange-500 text-gray-900  font-medium  rounded-lg hover:bg-orange-600 transition-colors"
               >
                 Done
               </motion.button>

@@ -13,7 +13,7 @@ const Info = React.memo(() => {
         <div className="max-w-8xl mx-auto">
           {/* Header Section */}
           <div className="mb-4 sm:mb-4">
-            <h1 className="text-2xl sm:text-2xl font-medium text-gray-800 mb-2">
+            <h1 className="text-1xl sm:text-2xl font-medium text-gray-800 mb-2">
               Explore India
             </h1>
 
@@ -48,8 +48,8 @@ const Info = React.memo(() => {
                     </p>
 
                     {/* Cultural Diversity */}
-                    <div className="bg-gradient-to-r from-blue-800 to-blue-700 rounded-lg p-4 border-l-4 border-blue-600">
-                      <h3 className="font-bold text-white mb-2">
+                    <div className="bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg p-4  ">
+                      <h3 className="font-bold text-gray-900 mb-2">
                         Cultural Tapestry
                       </h3>
                       <p className="text-white">
@@ -100,11 +100,11 @@ const Info = React.memo(() => {
                       </h3>
                       <p className="text-gray-700 mb-3">
                         Home to corporate giants like{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           Tatas
                         </span>
                         ,{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           Wipro
                         </span>
                         ,{" "}
@@ -112,19 +112,19 @@ const Info = React.memo(() => {
                           Infosys
                         </span>
                         ,{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           Mahindras
                         </span>
                         ,{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           Birlas
                         </span>
                         ,{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           Reliance
                         </span>
                         , and{" "}
-                        <span className="font-bold bg-gradient-to-r from-blue-200 to-transparent px-1">
+                        <span className="font-bold bg-gradient-to-r from-orange-100 to-transparent px-1">
                           United Breweries
                         </span>
                         .
@@ -138,7 +138,7 @@ const Info = React.memo(() => {
                     </div>
 
                     {/* I  n  d  i  a  */}
-                    <div className="bg-gradient-to-r from-blue-800 to-blue-700 rounded-xl p-5 text-white">
+                    <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-5 text-white">
                       <h3 className="font-bold text-lg mb-3 text-center">
                         The Spirit of India
                       </h3>

@@ -37,20 +37,20 @@ const airlines = [
 
 const AirlinesDemo = React.memo(() => {
   return (
-    <div className="m-2 mt-18 ">
-      <h2 className="text-2xl font-medium text-gray-800 mb-2">
+    <div className="m-2 mt-18   ">
+      <h2 className="text-1xl sm:text-2xl font-medium text-gray-800 mb-2">
         Popular Domestic Airlines
       </h2>
       <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border border-gray-300 rounded-2xl p-4 sm:p-6 mt-4">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border border-gray-300 shadow-lg rounded-2xl p-4 sm:p-6 mt-4">
         {airlines.map((airline, index) => (
           <Link
             to={airline.link}
             key={index}
             className="flex flex-col items-center justify-center p-2 hover:bg-gray-50 rounded-xl transition-colors"
           >
-            <div className="w-22 h-22 sm:w-20 sm:h-20 flex items-center justify-center">
+            <div className="w-10 h-10  sm:w-12 sm:h-12 flex items-center justify-center">
               <LazyLoadImage
                 src={airline.img}
                 alt={airline.name}
@@ -58,7 +58,7 @@ const AirlinesDemo = React.memo(() => {
                 className="max-w-full max-h-full object-contain"
               />
             </div>
-            <p className="text-center text-blue-600 text-sm sm:text-base font-medium mt-3">
+            <p className="text-center text-blue-600 text-sm sm:text-base font-medium mt-2">
               {airline.name}
             </p>
           </Link>

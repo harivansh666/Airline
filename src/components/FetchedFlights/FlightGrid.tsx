@@ -52,7 +52,7 @@ function FlightGrid() {
   }, []);
 
   return (
-    <div className="relative p-1 ">
+    <div className="relative p-1">
       {isLoading && (
         <div className=" relative rounded-2xl m-1">
           <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 p-0 gap-1">
@@ -63,7 +63,7 @@ function FlightGrid() {
         </div>
       )}
       {searchedFlights && (
-        <div className=" relative rounded-2xl border-1 border-gray-200 ">
+        <div className=" relative rounded-2xl border-1 border-gray-200 bg-gray-200 shadow-md">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-0">
             {flights.map((flight, index) => (
               <FlightCard key={index} flight={flight} />

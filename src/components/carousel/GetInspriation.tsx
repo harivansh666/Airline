@@ -39,7 +39,7 @@ function GetInspriation() {
   ];
 
   return (
-    <div className=" hidden sm:block ">
+    <div className=" hidden sm:block mb-14">
       <Carousel
         opts={{
           align: "start",

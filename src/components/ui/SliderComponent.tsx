@@ -179,14 +179,14 @@ const SliderComponent = React.memo(() => {
           aria-label="Previous slide"
           className="absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 transition-all duration-200 backdrop-blur-sm z-10"
         >
-          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
         </button>
         <button
           onClick={nextSlide}
           aria-label="Next slide"
           className="absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-40 rounded-full p-2 transition-all duration-200 backdrop-blur-sm z-10"
         >
-          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-orange-400" />
         </button>
       </div>
 
@@ -199,7 +199,7 @@ const SliderComponent = React.memo(() => {
             aria-label={`Go to slide ${index + 1}`}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide
-                ? "bg-blue-600 w-8"
+                ? "bg-gray-900 w-8"
                 : "bg-gray-600 hover:bg-gray-500"
             }`}
             whileHover={{ scale: 1.2 }}

@@ -3,7 +3,7 @@ import React from "react";
 
 const RatingBar = React.memo(() => {
   return (
-    <div className="w-full  bg-white py-8 sm:py-4 px-4  flex justify-center">
+    <div className="w-full  py-8 sm:py-4 px-4  flex justify-center">
       <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-lg text-gray-700">
         <span className="">Our customers say</span>
 

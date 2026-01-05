@@ -181,7 +181,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
       {isMobile ? (
         <div className="relative scale-95 p-1">
           <BookingTabs />
-          <div className="border-1 border-gray-300 rounded-2xl relative">
+          <div className="border-1 border-gray-400 rounded-2xl relative ">
             <div className="w-full p-1 mx-auto flex justify-center items-center flex-col mb-2">
               <motion.div className="mb-2">
                 <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200 mt-1">
@@ -192,16 +192,16 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setTripType(type)}
-                        className={`relative h-10 w-28 rounded-xl font-medium text-sm transition-all duration-300 ${
+                        className={`relative h-8 w-22 rounded-xl font-medium text-sm transition-all duration-300 ${
                           tripType === type
-                            ? "text-white bg-blue-600 shadow-lg"
+                            ? "text-white bg-orange-500 shadow-lg"
                             : "text-gray-600 hover:text-gray-900"
                         }`}
                       >
                         {tripType === type && (
                           <motion.div
                             layoutId="activeTripType"
-                            className="absolute inset-0 bg-blue-600 rounded-xl"
+                            className="absolute inset-0 bg-orange-500 rounded-xl"
                             transition={{
                               type: "spring",
                               stiffness: 300,
@@ -222,23 +222,23 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                   {/* From Airport */}
                   <div className="">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <PlaneTakeoff className="w-4 h-4 text-blue-600" />
+                      <div className="p-2 bg-gray-100 rounded-lg">
+                        <PlaneTakeoff className="w-4 h-4 text-orange-500" />
                       </div>
-                      <label className="text-sm font-medium text-gray-500">
+                      <label className="text-sm font-medium text-gray-700">
                         From
                       </label>
                     </div>
                     <input
                       type="text"
-                      placeholder="Enter airport"
+                      placeholder="Departure Airport"
                       value={fromAirport.code}
                       onChange={handleFromChange}
                       onFocus={() => {
                         setShowFromDropdown(true);
                         setShowToDropdown(false);
                       }}
-                      className="p-2 w-40 h-18 rounded-xl border-1 text-2xl bg-white font-bold text-gray-900 border-gray-200 hover:border-blue-400 transition-all duration-300 text-left"
+                      className="p-2 w-38 h-16 rounded-xl border-1 text-1xl pl-2   bg-white font-bold text-gray-900 border-gray-200 hover:border-blue-400 transition-all duration-300 text-left placeholder:text-[12px]"
                     />
 
                     <AnimatePresence>
@@ -249,22 +249,22 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute z-10 mt-2 w-40 bg-white border border-gray-200 rounded-xl shadow-2xl max-h-96 overflow-y-auto"
+                            className="absolute z-10 mt-2 w-36 h-80 bg-white border border-gray-200 rounded-xl shadow-2xl max-h-96 overflow-y-auto"
                           >
                             {filteredFromAirports.map((airport) => (
                               <motion.button
                                 key={airport.code}
                                 whileHover={{ backgroundColor: "#f0f9ff" }}
                                 onClick={() => handleSelectFromAirport(airport)}
-                                className={`w-full p-4 text-left hover:bg-blue-50 transition-colors ${
+                                className={`w-full p-3 text-left hover:bg-blue-50 transition-colors overflow-hidden ${
                                   fromAirport.code === airport.code
-                                    ? "bg-blue-50 border-l-4 border-blue-600"
+                                    ? "bg-blue-50 border-l-4 border-orange-400"
                                     : ""
                                 }`}
                               >
                                 <div className="flex justify-between items-center">
                                   <div>
-                                    <div className="font-bold text-gray-900">
+                                    <div className="font-bold text-[#191B24]">
                                       {airport.code}
                                     </div>
                                     <div className="text-gray-400 text-sm truncate">
@@ -272,7 +272,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                                     </div>
                                   </div>
                                   {fromAirport.code === airport.code && (
-                                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                                    <div className="w-2 h-2 bg-orange-500 rounded-full" />
                                   )}
                                 </div>
                               </motion.button>
@@ -293,15 +293,15 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                       onClick={handleSwapAirports}
                       className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl"
                     >
-                      <Repeat className="w-4 h-4 text-gray-500" />
+                      <Repeat className="w-4 h-4 text-gray-800" />
                     </button>
                   </motion.div>
 
                   {/* To Airport */}
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <PlaneLanding className="w-4 h-4 text-blue-600" />
+                      <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                        <PlaneLanding className="w-4 h-4 text-white" />
                       </div>
                       <label className="text-sm font-medium text-gray-500">
                         To
@@ -309,14 +309,14 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                     </div>
                     <input
                       type="text"
-                      placeholder="Enter airport"
+                      placeholder="Arrival Airport"
                       value={toAirport.code}
                       onChange={handleToChange}
                       onFocus={() => {
                         setShowToDropdown(true);
                         setShowFromDropdown(false);
                       }}
-                      className="p-2 w-38 h-18 rounded-xl border-1 text-2xl font-bold text-gray-900 border-gray-200 hover:border-blue-400 bg-white transition-all duration-300 text-left"
+                      className="p-2 w-38 h-16 rounded-xl border-1 text-1xl pl-3   bg-white font-bold text-gray-900 border-gray-200 hover:border-blue-400 transition-all duration-300 text-left placeholder:text-[12px]"
                     />
 
                     <AnimatePresence>
@@ -327,7 +327,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute z-10 mt-2 w-40 bg-white border border-gray-200 rounded-xl shadow-2xl max-h-96 overflow-y-auto"
+                            className="absolute z-10 mt-2 w-36 h-80 bg-white border border-gray-200 rounded-xl shadow-2xl max-h-96 overflow-y-auto"
                           >
                             {filteredToAirports.map((airport) => (
                               <motion.button
@@ -336,7 +336,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                                 onClick={() => handleSelectToAirport(airport)}
                                 className={`w-full p-4 text-left hover:bg-blue-50 transition-colors ${
                                   toAirport.code === airport.code
-                                    ? "bg-blue-50 border-l-4 border-blue-600"
+                                    ? "bg-blue-50 border-l-4 border-orange-400"
                                     : ""
                                 }`}
                               >
@@ -350,7 +350,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                                     </div>
                                   </div>
                                   {toAirport.code === airport.code && (
-                                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                                    <div className="w-2 h-2 bg-orange-500 rounded-full" />
                                   )}
                                 </div>
                               </motion.button>
@@ -368,8 +368,8 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                 <div className="flex flex-col w-full pl-1 pr-1">
                   <div className="flex-1 items-center gap-4 mb-2 ml-0 mt-4">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="p-2 bg-blue-100 rounded-lg">
-                        <CalendarDays className="w-5 h-5 text-blue-600" />
+                      <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                        <CalendarDays className="w-5 h-5 text-white" />
                       </div>
                       <label className="text-sm font-medium text-gray-500">
                         Departure Date
@@ -394,10 +394,10 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                     {tripType === "round" && (
                       <div className="flex-1 items-center gap-3 mb-2 ml-0 mt-4">
                         <div className="flex items-center gap-3 mb-2">
-                          <div className="p-2 bg-blue-100 rounded-lg">
-                            <CalendarDays className="w-5 h-5 text-blue-600" />
+                          <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                            <CalendarDays className="w-5 h-5 text-white" />
                           </div>
-                          <label className="text-sm font-medium text-gray-500">
+                          <label className="text-sm font-medium text-gray-600">
                             Return Date
                           </label>
                         </div>
@@ -423,13 +423,13 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full h-14 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-700 border-2 text-lg text-white tracking-wide rounded-lg"
+                  className="w-full h-14 flex justify-center items-center bg-orange-400 hover:bg-orange-500 border-2 text-lg text-gray-900 tracking-wide rounded-lg"
                 >
                   {isLoading ? (
                     <div role="status">
                       <svg
                         aria-hidden="true"
-                        className="w-8 h-8 text-neutral-tertiary animate-spin fill-brand"
+                        className="w-8 h-8 text-white animate-spin fill-brand"
                         viewBox="0 0 100 101"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -456,7 +456,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
       ) : (
         <div className="w-full  ">
           <BookingTabs />
-          <div className="border-1 w-full p-4 rounded-2xl ">
+          <div className="border-1 w-full p-4 rounded-2xl shadow-2xl bg-white ">
             <motion.div className="mb-2">
               <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200">
                 <div className="flex gap-2">
@@ -468,14 +468,14 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                       onClick={() => setTripType(type)}
                       className={`relative h-10 w-28 rounded-xl font-medium text-sm transition-all duration-300 ${
                         tripType === type
-                          ? "text-white bg-blue-600 shadow-lg"
+                          ? "text-white bg-orange-500 shadow-lg"
                           : "text-gray-600 hover:text-gray-900"
                       }`}
                     >
                       {tripType === type && (
                         <motion.div
                           layoutId="activeTripType"
-                          className="absolute inset-0 bg-blue-600 rounded-xl"
+                          className="absolute inset-0 bg-orange-500 rounded-xl"
                           transition={{
                             type: "spring",
                             stiffness: 300,
@@ -496,8 +496,8 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                 {/* From Airport */}
                 <div className="flex-1 justify-center relative">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <PlaneTakeoff className="w-5 h-5 text-blue-600" />
+                    <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                      <PlaneTakeoff className="w-5 h-5 text-white" />
                     </div>
                     <label className="text-sm font-medium text-gray-500">
                       From
@@ -505,14 +505,14 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                   </div>
                   <input
                     type="text"
-                    placeholder="Enter airport"
+                    placeholder="Departure Airport"
                     value={fromAirport.code}
                     onChange={handleFromChange}
                     onFocus={() => {
                       setShowFromDropdown(true);
                       setShowToDropdown(false);
                     }}
-                    className="w-60 p-4 rounded-xl border-1 border-gray-200 text-2xl font-bold text-gray-900 hover:border-blue-400 transition-all duration-300 bg-white text-left"
+                    className="w-60 p-4 rounded-xl border-1 border-gray-200 text-1xl font-medium placeholder:text-gray-300 text-gray-900 hover:border-blue-400 transition-all duration-300 placeholder:text-[18px] bg-white text-left"
                   />
 
                   <AnimatePresence>
@@ -531,7 +531,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                             onClick={() => handleSelectFromAirport(airport)}
                             className={`w-full p-4 text-left hover:bg-blue-50 transition-colors ${
                               fromAirport.code === airport.code
-                                ? "bg-blue-50 border-l-4 border-blue-600"
+                                ? "bg-blue-50 border-l-4 border-orange-400"
                                 : ""
                             }`}
                           >
@@ -545,7 +545,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                                 </div>
                               </div>
                               {fromAirport.code === airport.code && (
-                                <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                                <div className="w-2 h-2 bg-orange-500 rounded-full" />
                               )}
                             </div>
                           </motion.button>
@@ -565,14 +565,14 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                     onClick={handleSwapAirports}
                     className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl"
                   >
-                    <Repeat className="w-6 h-6 text-gray-500" />
+                    <Repeat className="w-6 h-6 text-gray-800" />
                   </button>
                 </motion.div>
                 {/* To Airport */}
                 <div className="flex-1 relative">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <PlaneLanding className="w-5 h-5 text-blue-600" />
+                    <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                      <PlaneLanding className="w-5 h-5 text-white" />
                     </div>
                     <label className="text-sm font-medium text-gray-500">
                       To
@@ -580,14 +580,14 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                   </div>
                   <input
                     type="text"
-                    placeholder="Enter airport"
+                    placeholder="Arrival Airport"
                     value={toAirport.code}
                     onChange={handleToChange}
                     onFocus={() => {
                       setShowToDropdown(true);
                       setShowFromDropdown(false);
                     }}
-                    className="w-60 p-4 text-2xl font-bold text-gray-900 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left"
+                    className="w-60 p-4 text-1xl font-medium text-gray-900 placeholder:text-gray-300 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left"
                   />
 
                   <AnimatePresence>
@@ -606,7 +606,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                             onClick={() => handleSelectToAirport(airport)}
                             className={`w-full p-4 text-left hover:bg-blue-50 transition-colors ${
                               toAirport.code === airport.code
-                                ? "bg-blue-50 border-l-4 border-blue-600"
+                                ? "bg-blue-50 border-l-4 border-orange-400"
                                 : ""
                             }`}
                           >
@@ -620,7 +620,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                                 </div>
                               </div>
                               {toAirport.code === airport.code && (
-                                <div className="w-2 h-2 bg-blue-600 rounded-full" />
+                                <div className="w-2 h-2 bg-orange-500 rounded-full" />
                               )}
                             </div>
                           </motion.button>
@@ -631,10 +631,10 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                 </div>
 
                 {/*  Departure Date */}
-                <div className="flex-1 items-center gap-3 mb-2 ml-0 mt-4">
+                <div className="flex-1 items-center gap-3 mb-2 ml-0 mt-2 ">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <CalendarDays className="w-5 h-5 text-blue-600" />
+                    <div className="p-2 bg-gradient-to-r from-orange-400 to-orange-500  rounded-lg">
+                      <CalendarDays className="w-5 h-5 text-white" />
                     </div>
                     <label className="text-sm font-medium text-gray-500">
                       Departure Date
@@ -647,7 +647,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                     className="p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
                   >
                     <div>
-                      <div className="text-lg font-bold text-gray-900">
+                      <div className="text-md font-medium text-gray-900">
                         {formatDate(dateRange?.from)}
                       </div>
                     </div>
@@ -658,12 +658,12 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                 {/*  Return Date */}
                 <div className="">
                   {tripType === "round" && (
-                    <div className="flex-1 items-center gap-3 mb-2  ">
+                    <div className="flex-1 items-center gap-3 mb-2   ">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="p-2 bg-blue-100 rounded-lg">
-                          <CalendarDays className="w-5 h-5 text-blue-600" />
+                        <div className="p-2  bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg">
+                          <CalendarDays className="w-5 h-5 text-white" />
                         </div>
-                        <label className="text-sm font-medium text-gray-500">
+                        <label className="text-sm font-medium text-gray-600">
                           Return Date
                         </label>
                       </div>
@@ -674,7 +674,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
                         className="p-3 rounded-xl border-1 border-gray-200 hover:border-blue-400 transition-all duration-300 bg-white text-left flex justify-between items-center"
                       >
                         <div>
-                          <div className="text-lg font-bold text-gray-900">
+                          <div className="text-md font-medium text-gray-900 ">
                             {formatDate(dateRange?.to) || "Select Return Date"}
                           </div>
                         </div>
@@ -690,7 +690,8 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-40 h-14 flex justify-center items-center bg-gradient-to-r from-blue-600 to-blue-700 border-2 text-lg text-white tracking-wide rounded-lg"
+                  className="w-40 h-14 flex justify-center items-center  bg-orange-400
+ border-2 text-lg text-white hover:bg-orange-500 tracking-wide rounded-lg"
                 >
                   {isLoading ? (
                     <div role="status">

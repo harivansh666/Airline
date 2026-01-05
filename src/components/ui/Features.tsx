@@ -3,12 +3,12 @@ import React from "react";
 
 const Features = React.memo(() => {
   return (
-    <div className=" bg-gradient-to-r from-blue-700  to-indigo-400 rounded-2xl">
+    <div className=" bg-gradient-to-r from-orange-300  to-orange-100 rounded-2xl  shadow-md">
       {/* Header Section */}
       <div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Save More, Fly More With TicketsToIndia
             </h1>
             <p className="text-lg text-black max-w-2xl mx-auto">
