@@ -20,9 +20,8 @@ function Home() {
   const showFlights = useStore((state) => state.showFlights);
   const setShowFlights = useStore((state) => state.setShowFlights);
   return (
-    <div>
-      <div className="max-w-7xl mx-auto">
-        {/* <img src="" alt="" /> */}
+    <div className="pt-2">
+      <div className="flex justify-center items-center pt-12 sm:p-34 w-full mx-auto  bg-local  bg-[url('https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767629517/Indian-Cities-with-Architectural-Background_fi3jzn.png')]">
         <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
           <FlightSearchForm onSearch={() => setShowFlights(true)} />
         </Suspense>
@@ -32,33 +31,35 @@ function Home() {
           <FlightGrid />
         </Suspense>
       )}
-      <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
-        <SliderComponent />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <RatingBar />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <GetInspriation />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <HotelsBanner />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <AirlinesDemo />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <Info />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <GlopBanner />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <RatingPersons />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
-        <Features />
-      </Suspense>
+      <div className="max-w-7xl mx-auto">
+        <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
+          <SliderComponent />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <RatingBar />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <GetInspriation />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <HotelsBanner />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <AirlinesDemo />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <Info />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <GlopBanner />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <RatingPersons />
+        </Suspense>
+        <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+          <Features />
+        </Suspense>
+      </div>
     </div>
   );
 }

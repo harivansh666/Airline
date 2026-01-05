@@ -14,12 +14,13 @@ function App() {
         <BrowserRouter>
           <Suspense fallback={<Loading />}>
             <Navbar />
-            <div className="pt-18 max-w-7xl mx-auto">
+            {/* <div className="pt-18 max-w-7xl mx-auto"> */}
+            <div className="">
               <Router />
               {/* Hamesha routes nu ne suspense vich wrap krna hai => Static + global UI must render ONCE*/}
             </div>
             <Footer />
-          </Suspense> 
+          </Suspense>
         </BrowserRouter>
         <FloatingWhatsApp />
       </div>
