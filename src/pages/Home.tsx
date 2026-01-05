@@ -21,8 +21,8 @@ function Home() {
   const setShowFlights = useStore((state) => state.setShowFlights);
   return (
     <div>
-      <div className="sm:pt-3 max-w-7xl mx-auto">
-        <img src="" alt="" />
+      <div className="max-w-7xl mx-auto">
+        {/* <img src="" alt="" /> */}
         <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
           <FlightSearchForm onSearch={() => setShowFlights(true)} />
         </Suspense>

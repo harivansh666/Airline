@@ -18,7 +18,7 @@ const BookingTabs = () => {
   ];
 
   return (
-    <div className="relative rounded-2xl   overflow-hidden">
+    <div className="relative rounded-2xl overflow-hidden">
       {mobile ? (
         <div className="w-full">
           <div className="flex justify-center items-center gap-6 p-1  bg-gray-100 border-1 rounded-t-2xl">

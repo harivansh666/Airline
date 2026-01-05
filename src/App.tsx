@@ -19,7 +19,7 @@ function App() {
               {/* Hamesha routes nu ne suspense vich wrap krna hai => Static + global UI must render ONCE*/}
             </div>
             <Footer />
-          </Suspense>
+          </Suspense> 
         </BrowserRouter>
         <FloatingWhatsApp />
       </div>

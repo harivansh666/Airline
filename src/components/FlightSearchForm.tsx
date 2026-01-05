@@ -177,7 +177,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
   };
 
   return (
-    <div className="rounded-2xl">
+    <div className="rounded-2xl max-w-7xl">
       {isMobile ? (
         <div className="relative scale-95 p-1">
           <BookingTabs />
