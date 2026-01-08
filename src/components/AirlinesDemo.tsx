@@ -38,12 +38,12 @@ const airlines = [
 const AirlinesDemo = React.memo(() => {
   return (
     <div className="m-2 mt-18   ">
-      <h2 className="text-1xl sm:text-2xl font-medium text-gray-800 mb-2">
+      <h2 className="text-1xl sm:text-2xl font-medium text-[#838382] font-semibold mb-2">
         Popular Domestic Airlines
       </h2>
-      <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
+      <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"></div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border border-gray-300 shadow-lg rounded-2xl p-4 sm:p-6 mt-4">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border border-gray-300 shadow-lg rounded-2xl bg-white ed-2xl p-4 sm:p-6 mt-4">
         {airlines.map((airline, index) => (
           <Link
             to={airline.link}

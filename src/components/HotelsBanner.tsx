@@ -80,12 +80,10 @@ function HotelsBanner() {
     <div className="border-1  shadow-lg  rounded-3xl p-6 mt-10 sm:mt-5 bg-gradient-to-r from-orange-200">
       <div className="flex justify-between items-center mb-14">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">
-            Top Hotels in New Delhi
-          </h2>
+          <h2 className="text-2xl font-bold">Top Hotels in New Delhi</h2>
           <p className="text-sm text-gray-600 pt-1">Best Price Guarantee</p>
         </div>
-        <button className="text-green-700 font-medium hover:underline">
+        <button className="custom-text-color   font-medium hover:underline hover:text-gray-900">
           View all ›
         </button>
       </div>
@@ -118,7 +116,7 @@ function HotelsBanner() {
                       </div>
                     )}
                     {hotel.badge && (
-                      <div className="absolute top-3 left-3 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                      <div className="absolute top-3 left-3 bg-[#e9621b] text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
                         <svg
                           className="w-4 h-4"
                           fill="currentColor"
@@ -146,7 +144,7 @@ function HotelsBanner() {
                     ))}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="bg-green-600 text-white px-2 py-1 rounded text-sm font-bold">
+                    <span className="bg-#e9621b text-white px-2 py-1 rounded text-sm font-bold">
                       {hotel.rating}
                     </span>
                     <div className="flex gap-1.5 ">

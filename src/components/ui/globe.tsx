@@ -17,8 +17,8 @@ const GLOBE_CONFIG: COBEOptions = {
   diffuse: 0.4,
   mapSamples: 16000,
   mapBrightness: 2,
-  baseColor: [0.0235, 0.1255, 0.3373],
-  markerColor: [1, 1, 1],
+  baseColor: [1, 1, 1],
+  markerColor: [0.9843, 0.5725, 0.2353],
   glowColor: [1, 1, 1],
   markers: [
     { location: [14.5995, 120.9842], size: 0.09 },

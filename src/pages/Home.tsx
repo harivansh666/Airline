@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useStore } from "@/store/statesStore";
+import PaymentMethods from "@/components/ui/PaymentMethods";
+import FlightSpecialOffers from "@/components/FlightSpecialOffers";
 
 const RatingBar = lazy(() => import("@/components/ui/RatingBar"));
 const GetInspriation = lazy(
@@ -28,16 +30,26 @@ function Home() {
       </div>
       {showFlights && (
         <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
-          <FlightGrid />
+          <div className="mt-2">
+            <FlightGrid />
+          </div>
         </Suspense>
       )}
+
+
+      <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
+        <FlightSpecialOffers />
+      </Suspense>
+
       <div className="max-w-7xl mx-auto">
         <Suspense fallback={<Skeleton className="w-full h-40 bg-gray-100" />}>
           <SliderComponent />
         </Suspense>
+
         <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
           <RatingBar />
         </Suspense>
+
         <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
           <GetInspriation />
         </Suspense>
@@ -59,6 +71,14 @@ function Home() {
         <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
           <Features />
         </Suspense>
+
+        <div className="w-full flex justify-center items-center mt-4 gap-2">
+          <h1 className="font-serif">Payment Methods</h1>
+          <img
+            src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto,w_200/v1767864656/all_logo_pfmtnx.png"
+            alt="payment methods"
+          />
+        </div>
       </div>
     </div>
   );

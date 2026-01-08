@@ -181,7 +181,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
       {isMobile ? (
         <div className="relative scale-95 p-1">
           <BookingTabs />
-          <div className="border-1 border-gray-400 bg-white rounded-2xl relative ">
+          <div className="border-1 border-gray-500 bg-white rounded-2xl relative ">
             <div className="w-full p-1 mx-auto flex justify-center items-center flex-col mb-2">
               <motion.div className="mb-2">
                 <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200 mt-1">
@@ -456,7 +456,7 @@ const FlightSearchForm = React.memo(({ onSearch }: ShowFlightGridProp) => {
       ) : (
         <div className="w-full  ">
           <BookingTabs />
-          <div className="border-1 w-full p-4 rounded-2xl shadow-2xl bg-white ">
+          <div className="border-1 border-gray-400 w-full p-4 rounded-2xl shadow-2xl bg-white ">
             <motion.div className="mb-2">
               <div className="relative bg-gradient-to-r from-gray-100 to-gray-50 rounded-2xl p-1.5 w-max mx-auto border border-gray-200">
                 <div className="flex gap-2">

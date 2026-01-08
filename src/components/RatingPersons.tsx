@@ -109,36 +109,38 @@ const RatingPersons = React.memo(() => {
         <AnimatedTooltip items={people} />
         <p className="ml-4 text-gray-500 animate-pulse">click me</p>
       </div>
-      <p className="text-sm text-gray-500 pl-1">Who believe us</p>
-      <h1 className="text-xs sm:text-[19px] font-semibold">
-        Excellent (4.7) 7,040 Reviews
-      </h1>
-      <div className="flex flex-row">
-        <Star fill="#FFB900" stroke="none" className="size-6 sm:size-7" />
-        <Star
-          size={30}
-          fill="#FFB900"
-          stroke="none"
-          className="size-6 sm:size-7"
-        />
-        <Star
-          size={30}
-          fill="#FFB900"
-          stroke="none"
-          className="size-6 sm:size-7"
-        />
-        <Star
-          size={30}
-          fill="#FFB900"
-          stroke="none"
-          className="size-6 sm:size-7"
-        />
-        <StarHalf
-          size={30}
-          fill="#FFB900"
-          stroke="none"
-          className="size-6 sm:size-7"
-        />
+      <div className="mt-4">
+        <p className="text-sm text-gray-500 pl-1">Who believe us</p>
+        <h1 className="text-xs sm:text-[19px] font-semibold">
+          Excellent (4.7) 7,040 Reviews
+        </h1>
+        <div className="flex flex-row">
+          <Star fill="#FFB900" stroke="none" className="size-6 sm:size-7" />
+          <Star
+            size={30}
+            fill="#FFB900"
+            stroke="none"
+            className="size-6 sm:size-7"
+          />
+          <Star
+            size={30}
+            fill="#FFB900"
+            stroke="none"
+            className="size-6 sm:size-7"
+          />
+          <Star
+            size={30}
+            fill="#FFB900"
+            stroke="none"
+            className="size-6 sm:size-7"
+          />
+          <StarHalf
+            size={30}
+            fill="#FFB900"
+            stroke="none"
+            className="size-6 sm:size-7"
+          />
+        </div>
       </div>
     </div>
   );

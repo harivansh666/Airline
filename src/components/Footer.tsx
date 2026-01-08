@@ -7,7 +7,7 @@ function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <h2 className="text-4xl font-bold mb-4 text-gray-900 ">
-              Ticketstoindia
+              Cheap Flights To In India
             </h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               Discover the world with confidence. Your journey begins here.
@@ -50,6 +50,10 @@ function Footer() {
                 </svg>
               </a>
             </div>
+            <img
+              src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767864656/all_logo_pfmtnx.png"
+              alt=""
+            />
           </div>
 
           {/* Popular Destinations */}

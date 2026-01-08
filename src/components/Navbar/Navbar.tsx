@@ -19,7 +19,7 @@ const Navbar = React.memo(() => {
           {/* Logo */}
           <div>
             <img
-              src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767613911/ticketstoindia-logo_jb4tta.png"
+              src="https://res.cloudinary.com/desslvu1w/image/upload/f_webp,q_auto/v1767860588/logo_pkjzkz.png"
               alt="Logo"
               loading="lazy"
               className="w-46 sm:w-64"

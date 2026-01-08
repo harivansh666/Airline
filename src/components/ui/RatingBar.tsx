@@ -23,8 +23,6 @@ const RatingBar = React.memo(() => {
           4.7 out of 5 based on{" "}
           <span className="font-medium">7,040 reviews</span>
         </span>
-
-      
       </div>
     </div>
   );

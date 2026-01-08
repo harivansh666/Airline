@@ -177,7 +177,7 @@ function TravellersClassSelect() {
                       className={`p-2 rounded-lg border-2 font-medium transition-all ${
                         selectedClass === cls.id
                           ? "border-orange-500 bg-blue-50 text-gray-800"
-                          : "border-gray-200 hover:border-blue-300"
+                          : "border-gray-200 hover:border-orange-200"
                       }`}
                     >
                       {cls.label}

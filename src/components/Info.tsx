@@ -13,15 +13,15 @@ const Info = React.memo(() => {
         <div className="max-w-8xl mx-auto">
           {/* Header Section */}
           <div className="mb-4 sm:mb-4">
-            <h1 className="text-1xl sm:text-2xl font-medium text-gray-800 mb-2">
+            <h1 className="text-1xl sm:text-2xl font-medium  custom-text-color mb-2">
               Explore India
             </h1>
 
-            <div className="w-16 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
+            <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"></div>
           </div>
 
           {/* Accordion Section */}
-          <div className="border border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white shadow-2xs">
+          <div className="border-1 border-gray-200 rounded-xl shadow-sm overflow-hidden bg-white shadow-2xs">
             <Accordion type="single" collapsible>
               <AccordionItem value="item-1" className="border-0">
                 <AccordionTrigger className="font-semibold text-lg sm:text-xl text-gray-800 hover:text-gray-900 hover:no-underline px-6 py-4 hover:bg-gray-50 transition-colors duration-200">
@@ -49,7 +49,7 @@ const Info = React.memo(() => {
 
                     {/* Cultural Diversity */}
                     <div className="bg-gradient-to-r from-orange-400 to-orange-500 rounded-lg p-4  ">
-                      <h3 className="font-bold text-gray-900 mb-2">
+                      <h3 className="font-bold text-lg text-white mb-2">
                         Cultural Tapestry
                       </h3>
                       <p className="text-white">
@@ -177,12 +177,12 @@ const Info = React.memo(() => {
                           memorable tour packages:
                         </p>
                         <a
-                          href="https://www.ticketstoindia.co.uk"
+                          href="https://www.cheapflighttoindia.co.uk/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-block font-bold text-blue-700 hover:text-blue-500 transition-colors duration-200"
                         >
-                          www.ticketstoindia.co.uk
+                          www.cheapflighttoindia.co.uk
                         </a>
                         <p className="text-sm text-gray-600 mt-2">
                           Or email our customer support:
@@ -193,6 +193,10 @@ const Info = React.memo(() => {
                         >
                           cc@ticketstoindia.co.uk
                         </a>
+                        <p className="text-md text-gray-600 mt-2">
+                          UK OFFICE: 8 Marlborough Business Centre, 96 George
+                          Lane, London, E18 1AD
+                        </p>
                       </div>
                     </div>
                   </div>

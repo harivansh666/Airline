@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import planePng from "../../assets/images/planeLoder.png";
+import planePng from "../../assets/images/loding.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 const Loading: React.FC = () => {
   useEffect(() => {
@@ -14,14 +14,15 @@ const Loading: React.FC = () => {
   }, []);
   return (
     <div className="fixed flex flex-col  h-screen w-full  justify-center items-center top-0 left-0 right-0 bottom-0 z-50  bg-transparent">
-      <div className="w-42 h-20  font-custome-regular rounded-full flex flex-col justify-center items-center ">
+      <div className="w-36 h-36   rounded-full flex flex-col justify-center items-center ">
         <LazyLoadImage
           src={planePng}
+          loading="lazy"
           alt="Loading animation of an airplane"
           className="w-18 animate-bounce"
         />
         <div className="flex justify-center items-center text-nowrap ">
-          <p className="">Loading</p>
+          <p className="font-serif">Loading</p>
           <p className="animate-pulse">.</p>
           <p className="animate-pulse">.</p>
           <p className="animate-pulse">.</p>

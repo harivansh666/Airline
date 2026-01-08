@@ -44,9 +44,7 @@ function FlightGrid() {
   };
   useEffect(() => {
     toast.success("Updating Best Results");
-    const flightsData = Array.from({ length: 20 }).map(
-      generateRandomFlightData
-    );
+    const flightsData = Array.from({ length: 8 }).map(generateRandomFlightData);
 
     setFlights(flightsData);
   }, []);
@@ -55,7 +53,7 @@ function FlightGrid() {
     <div className="relative p-1">
       {isLoading && (
         <div className=" relative rounded-2xl m-1">
-          <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 p-0 gap-1">
+          <div className="max-w-7xl mx-auto grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 p-0 gap-1">
             {Array.from({ length: 3 }).map((_e, index) => (
               <Skeleton key={index} className="w-full h-18 bg-gray-200 " />
             ))}
@@ -63,7 +61,7 @@ function FlightGrid() {
         </div>
       )}
       {searchedFlights && (
-        <div className=" relative rounded-2xl border-1 border-gray-200 bg-gray-200 shadow-md">
+        <div className=" mx-auto relative rounded-2xl border-1 border-gray-200 bg-gray-200 shadow-md max-w-7xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-0">
             {flights.map((flight, index) => (
               <FlightCard key={index} flight={flight} />
@@ -79,7 +77,7 @@ function FlightGrid() {
                   <PaginationLink href="#">1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
-                  <PaginationLink href="#" isActive className="bg-blue-600">
+                  <PaginationLink href="#" isActive className="bg-orange-600">
                     2
                   </PaginationLink>
                 </PaginationItem>

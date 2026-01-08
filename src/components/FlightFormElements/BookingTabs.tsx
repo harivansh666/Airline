@@ -21,7 +21,7 @@ const BookingTabs = () => {
     <div className="relative rounded-2xl overflow-hidden">
       {mobile ? (
         <div className="w-full">
-          <div className="flex justify-center items-center gap-6 p-1  bg-gray-100 border-1 rounded-t-2xl">
+          <div className="flex justify-center items-center gap-6 p-1  bg-gray-100 border-1 border-gray-400 rounded-t-2xl">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
@@ -51,7 +51,7 @@ const BookingTabs = () => {
         </div>
       ) : (
         <div className="flex">
-          <div className="flex flex-wrap justify-center border-t-2 border-l-1 border-r-1 gap-2 p-1 bg-white rounded-t-2xl pl-3 pr-3">
+          <div className="flex flex-wrap justify-center border-t-2 border-l-1 border-r-1  border-gray-400 gap-2 p-1 bg-white rounded-t-2xl pl-3 pr-3">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               return (
