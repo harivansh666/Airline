@@ -30,7 +30,7 @@ const GlopBanner = React.memo(() => {
             <CarouselContent>
               {Array.from({ length: 2 }).map((_, index) => (
                 <CarouselItem key={index} className=" overflow-hidden">
-                  <div className="flex   justify-center items-center h-60 rounded-2xl p-4 bg-orange-500  object-cover  ">
+                  <div className="flex   justify-center items-center h-60 rounded-2xl p-4 bg-gradient-to-r from-orange-500 to-orange-800  object-cover  ">
                     <div>
                       <h2 className="font-semibold text-2xl text-nowrap text-white">
                         Our Agents
