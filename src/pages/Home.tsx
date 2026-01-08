@@ -1,12 +1,14 @@
 import { lazy, Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useStore } from "@/store/statesStore";
-import PaymentMethods from "@/components/ui/PaymentMethods";
-import FlightSpecialOffers from "@/components/FlightSpecialOffers";
 
 const RatingBar = lazy(() => import("@/components/ui/RatingBar"));
 const GetInspriation = lazy(
   () => import("@/components/carousel/GetInspriation")
+);
+
+const FlightSpecialOffers = lazy(
+  () => import("@/components/FlightSpecialOffers")
 );
 const FlightGrid = lazy(() => import("@/components/FetchedFlights/FlightGrid"));
 const HotelsBanner = lazy(() => import("@/components/HotelsBanner"));
@@ -35,7 +37,6 @@ function Home() {
           </div>
         </Suspense>
       )}
-
 
       <Suspense fallback={<Skeleton className="w-full bg-gray-100" />}>
         <FlightSpecialOffers />
