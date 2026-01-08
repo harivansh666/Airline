@@ -44,10 +44,10 @@ const Navbar = React.memo(() => {
               Hot Deals
             </Link>
             <Link
-              to="/countries"
+              to="/about-us"
               className=" text-gray-700 hover:text-gray-950 text-md font-medium"
             >
-              Countries
+              About us
             </Link>
             {/* <Link
               to="/contact"

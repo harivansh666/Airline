@@ -51,11 +51,11 @@ function MobileSlide({ toggleMenu, isMenuOpen }: ChildComponentProps) {
             </Link>
 
             <Link
-              to="/countries"
+              to="/about-us"
               className="block text-gray-700 hover:text-blue-600 text-base font-medium py-2"
               onClick={toggleMenu}
             >
-              Countries
+              About
             </Link>
             {/* <Link
               to="/contact"

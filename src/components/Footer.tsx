@@ -138,7 +138,7 @@ function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-            <p>&copy; 2026 TravelHub. All rights reserved.</p>
+            <p>&copy; 2026 Cheapflighttoindia. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-white transition-colors">
                 Privacy Policy

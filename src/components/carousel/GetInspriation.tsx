@@ -54,7 +54,7 @@ function GetInspriation() {
               className="basis-1/1 md:basis-1/3 lg:basis-1/5 "
             >
               <Card className="overflow-hidden h-30  rounded-md shadow-md border-0  relative ">
-                <div className="relative w-full h-full bg-amber-200 ">
+                <div className="relative w-full h-full bg-gray-300 ">
                   <LazyLoadImage
                     src={destination.imageUrl}
                     alt={destination.name}

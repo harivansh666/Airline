@@ -4,6 +4,8 @@ import Loading from "./components/ui/Loading";
 
 const Home = lazy(() => import("./pages/Home"));
 const HotDeals = lazy(() => import("./pages/HotDeals"));
+const About = lazy(() => import("./pages/About"));
+
 function Router() {
   return (
     <div>
@@ -11,6 +13,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hotdeals" element={<HotDeals />} />
+          <Route path="/about-us" element={<About />} />
         </Routes>
       </Suspense>
     </div>
