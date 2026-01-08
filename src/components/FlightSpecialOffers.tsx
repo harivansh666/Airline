@@ -150,4 +150,4 @@ function FlightSpecialOffers() {
   );
 }
 
-export default FlightSpecialOffers;
+export default React.memo(FlightSpecialOffers);
